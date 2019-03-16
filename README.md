@@ -29,16 +29,17 @@ Things you may want to cover:
 |name|text|null: false|
 |image|text|null: false|
 |content|text|null: false|
-|category|text|null: false|
+|brand|text||
 |user_id|integer|null: false,foreign_key: true|
 |size|string||
 |state|string|null: false|
 |sold|boolean|null: false|
 
 ### Association
+- has_many :tree_paths
 - belongs_to :user
 
-##usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
@@ -55,7 +56,7 @@ Things you may want to cover:
 - has_many :products
 - has_many :comments
 
-##commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false,foreign_key: true|
@@ -66,7 +67,7 @@ Things you may want to cover:
 - belongs_to :product
 - belongs_to :user
 
-##messagesテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
@@ -75,7 +76,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##evaluationsテーブル
+## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
@@ -84,7 +85,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-##deliveryテーブル
+## deliveryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|integer|null: false,foreign_key: true|
@@ -95,7 +96,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-##genresテーブル
+## genresテーブル
 |Column|Type|Options|
 |------|----|-------|
 |brand|string||
@@ -105,3 +106,23 @@ Things you may want to cover:
 
 ### Association
 - has_many :products
+
+## tree_pathsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|string|null: false|
+|category|integer|null: false|
+|path|integer|null: false|
+
+### Association
+- belongs_to :product
+
+## profileテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|string|null: false|
+|profile-image|text||
+|profile-comment|text||
+
+### Association
+- belongs_to :user
