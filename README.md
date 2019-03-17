@@ -96,17 +96,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## genresテーブル
-|Column|Type|Options|
-|------|----|-------|
-|brand|string||
-|category1|string||
-|category2|string||
-|category3|string||
-
-### Association
-- has_many :products
-
 ## tree_pathsテーブル
 |Column|Type|Options|
 |------|----|-------|
