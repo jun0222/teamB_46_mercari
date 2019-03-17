@@ -30,7 +30,7 @@ Things you may want to cover:
 |image|text|null: false|
 |content|text|null: false|
 |brand|text||
-|user_id|integer|null: false,foreign_key: true|
+|user_id|references|null: false,foreign_key: true|
 |size|string||
 |state|string|null: false|
 |sold|boolean|null: false|
@@ -59,8 +59,8 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false,foreign_key: true|
-|user_id|integer|null: false,foreign_key: true|
+|product_id|references|null: false,foreign_key: true|
+|user_id|references|null: false,foreign_key: true|
 |comment|text|null: false|
 
 ### Association
@@ -70,7 +70,7 @@ Things you may want to cover:
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false,foreign_key: true|
+|user_id|references|null: false,foreign_key: true|
 |message|text|null: false|
 
 ### Association
@@ -79,7 +79,7 @@ Things you may want to cover:
 ## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false,foreign_key: true|
+|user_id|references|null: false,foreign_key: true|
 |evaluation|integer|null: false|
 
 ### Association
@@ -88,7 +88,7 @@ Things you may want to cover:
 ## deliveryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|integer|null: false,foreign_key: true|
+|product_id|references|null: false,foreign_key: true|
 |costBearer|integer|null: false|
 |deliveryMthod|text|null: false|
 |deliverySource|string|null: false|
@@ -110,7 +110,7 @@ Things you may want to cover:
 ## tree_pathsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|string|null: false|
+|product_id|references|null: false, foreign_key: true|
 |category|integer|null: false|
 |path|integer|null: false|
 
@@ -120,7 +120,7 @@ Things you may want to cover:
 ## profileテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
+|user_id|references|null: false, foreign_key: true|
 |profile-image|text||
 |profile-comment|text||
 
