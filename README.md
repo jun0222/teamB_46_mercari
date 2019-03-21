@@ -42,15 +42,24 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|phonetic|text|null: false|
+|nickname|text|null: false|
+|email|text|unique: true, null: false|
+|encryted_password|text|null: false|
+|first_name|text|null: false|
+|last_name|text|null: false|
+|first_phonetic|text|null: false|
+|last_phonetic|text|null: false|
+|birth_year|datetime|null: false|
+|birth_month|datetime|null: false|
+|birth_day|datetime|null: false|
 |phone_number|integer|unique: true, null: false|
 |address|text|null: false|
 |profile_comment|text||
 |post_address|integer|null: false|
-|mail_address|text|unique: true, null: false|
-|birth_day|datetime|null: false|
-|nickname|text|null: false|
+
+
+
+
 
 ### Association
 - has_many :products
@@ -110,8 +119,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|profile-image|text||
-|profile-comment|text||
+|profile_image|text||
+|profile_comment|text||
 
 ### Association
 - belongs_to :user
