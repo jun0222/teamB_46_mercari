@@ -58,9 +58,6 @@ Things you may want to cover:
 |post_address|integer|null: false|
 
 
-
-
-
 ### Association
 - has_many :products
 - has_many :comments
