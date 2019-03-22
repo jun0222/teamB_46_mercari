@@ -59,6 +59,12 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
+group :tools do
+  gem 'squasher', '>= 0.6.0'
+  # gem 'capistrano'
+  gem 'rubocop'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "font-awesome-rails"
