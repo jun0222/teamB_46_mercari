@@ -1,21 +1,148 @@
-%h2 Sign upですよ！
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+/ 以下作成ビュー
+%body
+  .single-container
+    / -------------- ヘッダー ---------------------
+    %header.single-header
+      %h1
+        %a{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "49px", :src => "image/logo.svg", :width => "185px"}/
+      %nav.progress-bar.signup-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status
+          %li
+            電話番号認証
+            .progress-status
+          %li
+            お届け先住所入力
+            .progress-status
+          %li
+            支払い方法
+            .progress-status
+          %li.last
+            完了
+            .progress-status
+    / -------------- 入力画面メイン --------------------
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head 会員情報入力
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %form.l-single-inner{:action => "https://www.mercari.com/jp/signup/sms_confirmation/", :method => "POST", :novalidate => "novalidate"}
+          %input{:name => "__csrf_value", :type => "hidden", :value => "40204fb350d4c122165332ea9a37da15a5eb514625ec4ea45e17c64d3eb8e97c376bf2268a1bf9c22976bb3f430c5e9bd818296db42410decd3d325ff20f80fc2"}/
+          .l-single-content
+            .form-group
+              %label{:for => "nickname"} ニックネーム
+              %span.form-require 必須
+              = f.text_field :nickname, :class => 'input-default', autofocus: true, autocomplete: "nickname", :placeholder => "例) メルカリ太郎"
+            .form-group
+              %label{:for => "email"} メールアドレス
+              %span.form-require 必須
+              = f.email_field :email, :class => 'input-default', autofocus: true, autocomplete: "email", :placeholder => "PC・携帯どちらでも可"
+            .form-group
+              %label{:for => "password"} パスワード
+              %span.form-require 必須
+              = f.password_field :password, :class => 'input-default', autofocus: true, autocomplete: "password", :placeholder => "6文字以上"
+            .form-group
+              %label{:for => "password_confirmation"} パスワード（確認）
+              %span.form-require 必須
+              = f.password_field :password_confirmation, :class => 'input-default', autofocus: true, autocomplete: "password_confirmation", :placeholder => "6文字以上"
+            .form-group
+              %h3.text-left.l-chapter-sub-head 本人確認
+              %p.l-single-text
+                安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .form-group
+              %label{:for => "last_name"} 姓(全角)
+              %span.form-require 必須
+              = f.text_field :last_name, :class => 'input-default', autofocus: true, autocomplete: "last_name", :placeholder => "例）山田"
+            .form-group
+              %label{:for => "first_name"} 名(全角)
+              %span.form-require 必須
+              = f.text_field :first_name, :class => 'input-default', autofocus: true, autocomplete: "first_name", :placeholder => "例）彩"
+            .form-group
+              %label{:for => "last_phonetic"} 姓カナ(全角)
+              %span.form-require 必須
+              = f.text_field :last_phonetic, :class => 'input-default', autofocus: true, autocomplete: "last_phonetic", :placeholder => "例）ヤマダ"
+            .form-group
+              %label{:for => "first_phonetic"} 名カナ(全角)
+              %span.form-require 必須
+              = f.text_field :first_phonetic, :class => 'input-default', autofocus: true, autocomplete: "first_phonetic", :placeholder => "例）アヤ"
+            .form-group
+              %label{:for => "birth_year"} 生年月日
+              %span.form-require 必須
+              = f.select :birth_year, [["1900", "1900"], ["1901", "1901"], ["1902", "1902"], ["1903", "1903"], ["1904", "1904"], ["1905", "1905"]], :class => 'input-default'
+            .form-group
+              %label{:for => "birth_month"} 生年月日
+              %span.form-require 必須
+              = f.select :birth_month, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"]], :class => 'input-default'
+            .form-group
+              %label{:for => "birth_day"} 生年月日
+              %span.form-require 必須
+              = f.select :birth_day, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], :class => 'input-default'
+              / 以下正規のメルカリでは別画面からの登録
+            .form-group
+              %label{:for => "phone_number"} 電話番号
+              %span.form-require 必須
+              = f.text_field :phone_number, :class => 'input-default', autofocus: true, autocomplete: "phone_number", :placeholder => "例) 09012345678"
+            .form-group
+              %label{:for => "post_address"} 郵便番号
+              %span.form-require 必須
+              = f.text_field :post_address, :class => 'input-default', autofocus: true, autocomplete: "post_address", :placeholder => "例) 1234567"
+            .form-group
+              %label{:for => "address"} 住所
+              %span.form-require 必須
+              = f.text_field :address, :class => 'input-default', autofocus: true, autocomplete: "address", :placeholder => "例) 大阪府茨木市"
+            %p.form-info-text
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .l-single-content
+            %input{:name => "after_save_callback", :type => "hidden", :value => ""}/
+            .form-group
+              .g-recaptcha.signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+                %div{:style => "width: 304px; height: 78px;"}
+                  %div
+                    %iframe{:frameborder => "0", :height => "78", :name => "a-j2t4ifw5zkx2", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1552285980763&size=normal&cb=7jnhn77c99r5", :width => "304"}
+                  %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+                    :preserve
+
+                                                .form-group
+              %p.l-single-text.text-center
+                「次へ進む」のボタンを押すことにより、
+                %a{:href => "/jp/tos_list/", :target => "_blank"}> 利用規約
+                に同意したものとみなします
+            %button.btn-default.btn-red{:type => "submit"} 次へ進む
+            .form-group.text-right
+              %p
+                %a{:href => "/jp/help_center/article/423/", :target => "_blank"}
+                  本人情報の登録について
+                  %i.icon-arrow-right
+    / --------------------- フッター--------------------
+    .wrapper
+      %footer.single-footer
+        %nav
+          %ul.clearfix
+            %li
+              %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+            %li
+              %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+            %li
+              %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+        %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
+          %img{:alt => "mercari", :height => "65", :src => "image/logo-gray.svg", :width => "80"}/
+        %p
+          %small © 2019 Mercari
+  %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?2957192407"}
+  / Google Tag Manager
+  :javascript
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KLPT5L5');
+  / End Google Tag Manager
+  %div{:style => "background-color: rgb(255, 255, 255);\n  border: 1px solid rgb(204, 204, 204);\n  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px;\n  position: absolute;\n  transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s;\n  opacity: 0;\n  visibility: hidden;\n  z-index: 2000000000;\n  left: 0px;\n  top: -10000px;"}
+    %div{:style => "width: 100%;\n      height: 100%;\n      position: fixed;\n      top: 0px;\n      left: 0px;\n      z-index: 2000000000;\n      background-color: rgb(255, 255, 255);\n      opacity: 0.05;"}
+    .g-recaptcha-bubble-arrow{:style => "border: 11px solid transparent;\n      width: 0px;\n      height: 0px;\n      position: absolute;\n      pointer-events: none;\n      margin-top: -11px;\n      z-index: 2000000000;"}
+    .g-recaptcha-bubble-arrow{:style => "border: 10px solid transparent; width: 0px;\n      height: 0px;\n      position: absolute;\n      pointer-events: none;\n      margin-top: -10px;\n      z-index: 2000000000;"}
+    %div{:style => "z-index: 2000000000; position: relative;"}
+      %iframe{:frameborder => "0", :name => "c-j2t4ifw5zkx2", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/bframe?hl=ja&v=v1552285980763&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&cb=8giarne5e7kg", :style => "width: 100%; height: 100%;", :title => "reCAPTCHA による確認"}
