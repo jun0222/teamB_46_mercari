@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TeamB46Mercari
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+  %body
+    %header
+      %div{:class => "“header-inner”"}
+        %div{:class => "“header-inner__top”"}
+          %div{:class => "“header-inner__top__left”"}
+            %a{:href => "“https://www.mercari.com/jp/“"}
+              %img{:alt => "“mercari”", :height => "“36\"", :src => "“//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2845599746”", :width => "“134”"}/
+          %div{:class => "“header-inner__top__right”"}
+            %form
+              %input{:name => "“keyword”", :placeholder => "“キーワードから探す“", :type => "“search”", :value => "“”"}/
+        %div{:class => "“header-inner__bottom”"}
+    = yield
