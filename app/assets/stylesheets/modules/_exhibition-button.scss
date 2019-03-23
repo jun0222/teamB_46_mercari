@@ -1,0 +1,17 @@
+.sel-button{
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    background: #ea352d;
+    color: white;
+    border-radius: 50%;
+    font-size: 22px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    line-height: 60px;
+  }
+  .fa-camera:before{
+    content: none;
+    font-size: 54px;
+  }
