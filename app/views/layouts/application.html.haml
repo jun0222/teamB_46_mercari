@@ -17,6 +17,7 @@
 
   %body
     %header
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
       %div{:class => "“header-inner”"}
         %div{:class => "“header-inner__top”"}
           %div{:class => "“header-inner__top__left”"}
