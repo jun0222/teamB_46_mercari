@@ -8,7 +8,7 @@
     .wrapper__main__image
       %h2
         出品画像
-        %span 必須
+        %span.bgred 必須
       %p 最大10枚までアップロードできます
       .wrapper__main__image__drop-box
         %input/
@@ -20,12 +20,12 @@
       .wrapper__main__item__name
         %h3
           商品名
-          %span 必須
+          %span.bgred 必須
         %input{:placeholder => "商品名(必須40文字まで)"}/
       .wrapper__main__item__text
         %h3
           商品の説明
-          %span 必須
+          %span.bgred 必須
         %textarea{:placeholder => "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
     .wrapper__main__list-item
       .wrapper__main__list__name
@@ -34,7 +34,7 @@
         .wrapper__main__list_select_top
           %p
             カテゴリー
-            %span 必須
+            %span.bgred 必須
           %select
             %option ---
             %option レディース
@@ -53,7 +53,7 @@
         .wrapper__main__list_select_bottom
           %p
             商品の状態
-            %span 必須
+            %span.bgred 必須
           %select
             %option ---
             %option 新品、未使用
@@ -71,7 +71,7 @@
         .wrapper__main__list_select_top
           %p
             配送料の負担
-            %span 必須
+            %span.bgred 必須
           %select
             %option ---
             %option 送料込み(出品者負担)
@@ -79,7 +79,7 @@
         .wrapper__main__list_select_center
           %p
             発送元の地域
-            %span 必須
+            %span.bgred 必須
           %select
             %option ---
             %option 北海道
@@ -133,7 +133,7 @@
         .wrapper__main__list_select_bottom
           %p
             発送までの日数
-            %span 必須
+            %span.bgred 必須
           %select
             %option ---
             %option 1~2日で発送
@@ -146,12 +146,12 @@
           %span.fa.fa-question-circle
       .wrapper__main__list_select_box
         .wrapper__main__list_select_top
-          %p
+          %span
             価格
-            %span 必須
-          %p.children
+            %span.bgred 必須
+          %span.children
             ¥
-            %input{:placeholder => "例）300"}/
+            %input{:placeholder => "                          例）300"}/
         .wrapper__main__list_select_center
           %p 販売手数料(10%)
           %a.children -
