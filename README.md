@@ -27,7 +27,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
-|image|text|null: false|
+|image|varbinary|null: false|
 |content|text|null: false|
 |brand|text||
 |user_id|references|null: false,foreign_key: true|
@@ -52,7 +52,7 @@ Things you may want to cover:
 |birth_year|datetime|null: false|
 |birth_month|datetime|null: false|
 |birth_day|datetime|null: false|
-|phone_number|integer|unique: true, null: false|
+|phone_number|string|unique: true, null: false|
 |address|text|null: false|
 |profile_comment|text||
 |post_address|integer|null: false|
