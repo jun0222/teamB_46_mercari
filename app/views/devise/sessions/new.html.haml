@@ -4,7 +4,8 @@
     %header.single-header
       %h1
         %a{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "49px", :src => "image/logo.svg", :width => "185px"}/
+          %img{:alt => "mercari", :height => "49px", :src => "logo.svg", :width => "185px"}/
+          %svg {xmlns="http://www.w3.org/2000/svg" width="185px" height="49px"}
     %main.single-main
       .login-panel
         .login-no-account
@@ -17,7 +18,7 @@
             Facebookでログイン
           %button#google-login.btn-default.btn-sns.btn-sns-google
             Googleでログイン
-          .login-form-inner
+          .login-form-inner-record
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .form-group
                 = f.email_field :email, autofocus: true, autocomplete: "email", :class => 'login-input-text input-default', :placeholder => "メールアドレス"
@@ -63,34 +64,6 @@
             %li
               %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
         %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "image/logo-gray.svg", :width => "80"}/
+          %img{:alt => "mercari", :height => "65", :src => "logo-gray.svg", :width => "80"}/
         %p
           %small © 2019 Mercari
-  %script{:gapi_processed => "true", :src => "https://apis.google.com/js/api:client.js"}
-  %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?1916285684"}
-  :javascript
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      'event': 'login',
-      'uid': ''
-    });
-  / Google Tag Manager
-  :javascript
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KLPT5L5');
-  / End Google Tag Manager
-  %iframe#ssIFrame_google{"aria-hidden" => "true", "frame-border" => "0", :sandbox => "allow-scripts allow-same-origin", :src => "https://accounts.google.com/o/oauth2/iframe#origin=https%3A%2F%2Fwww.mercari.com&rpcToken=276354077.6260198", :style => "position: absolute; width: 1px; height: 1px; left: -9999px; top: -9999px; right: -9999px; bottom: -9999px; display: none;"}
-  #fb-root.fb_reset
-    %div{:style => "position: absolute; top: -10000px; width: 0px; height: 0px;"}
-      %div
-      %div
-        %iframe#fb_xdm_frame_https{:allow => "encrypted-media", :allowfullscreen => "true", :allowtransparency => "true", "aria-hidden" => "true", :frameborder => "0", :name => "fb_xdm_frame_https", :scrolling => "no", :src => "https://staticxx.facebook.com/connect/xd_arbiter/r/d_vbiawPdxB.js?version=44#channel=f354c14a2999fe8&origin=https%3A%2F%2Fwww.mercari.com", :style => "border: none;", :tabindex => "-1", :title => "Facebook Cross Domain Communication Frame"}
-  %div{:style => "background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"}
-    %div{:style => "width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"}
-    .g-recaptcha-bubble-arrow{:style => "border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"}
-    .g-recaptcha-bubble-arrow{:style => "border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"}
-    %div{:style => "z-index: 2000000000; position: relative;"}
-      %iframe{:frameborder => "0", :name => "c-hhhk6w461ynk", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/bframe?hl=ja&v=v1552285980763&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&cb=z5ta12lernex", :style => "width: 100%; height: 100%;", :title => "reCAPTCHA による確認"}

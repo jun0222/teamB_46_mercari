@@ -47,7 +47,9 @@ a {
 }
 /*新規登録ボタン*/
 .login-no-account {
-  padding: 40px 64px;
+  padding-top: 40px;
+  padding-left: 64px;
+  padding-right: 64px;
   text-align: center;
 }
 .login-no-account p {
@@ -55,7 +57,6 @@ a {
 }
 .login-no-account a {
   display: block;
-  margin: 8px 0 0;
   border: 1px solid #0099e8;
   background: #0099e8;
   color: #fff;
@@ -63,7 +64,7 @@ a {
 }
 /*facebookoogle等*/
 .login-form-inner {
-  padding: 32px 40px 32px 28px;
+  padding: 32px 64px 32px 64px;
   border-top: 1px solid #eee;
 }
 .btn-sns {
@@ -104,7 +105,10 @@ a {
 }
 
 /*メールアドレス等入力する部分*/
-.login-form-inner .input-default {
+.login-form-inner-record {
+  margin-top: 56px;
+}
+.login-form-inner-record .input-default {
   margin: 0;
 }
 .login-form-inner:first-child {
@@ -113,7 +117,7 @@ a {
 }
 
 /*メールアドレス*/
-.form-group input {
+.form-group .input-default {
   width: calc(100% - 34px);
   padding: 0;
   padding-left: 16px;
@@ -139,10 +143,9 @@ a {
 /*パスワードをお忘れの方*/
 .login-panel a {
   display: block;
-  margin: 40px 0 0;
   font-size: 14px;
+  margin: 40px 0 0;
 }
-
 /* -------------- フッター ---------------*/
 .single-footer {
   height: 220px;
