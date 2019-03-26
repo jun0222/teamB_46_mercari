@@ -1,0 +1,44 @@
+.top__image, .bottom-image{
+    width: 100%;
+  }
+  .products__title, .main__pick-up{
+    text-align: center;
+  }
+  .products__product{
+    width: 213px;
+    background: white;
+    float: left;
+    margin-left: 20px;
+  }
+  .products__product-col{
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+  }
+  .product-image{
+    height: 100%;
+    width: 100%;
+  }
+  .products__price{
+    float: left;
+  }
+  .products__goods{
+    float: right;
+  }
+  .products__product-text{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .products__product-info-wrap{
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+  }
+  .tax{
+    font-size: 8px;
+  }
+  a{
+    text-decoration: none;
+  }
+
