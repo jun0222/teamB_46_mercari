@@ -1,11 +1,6 @@
 / 一番上のスクロール画像
 %section.top
-  .slider
-    = image_tag '1cde8aaebb0c3936a55e3713d2877b8b.jpg', :class => "top__image"
-    = image_tag '9d73db543cbc2756aebd1827d241aab8.jpg', :class => "top__image"
-    = image_tag 'b153863c47d9c86c6fc52afca368f327.jpg', :class => "top__image"
-    = image_tag 'd8726c8cc2de6abdc21ce8d639544f20.jpg', :class => "top__image"
-
+  = image_tag 'scroll.jpg', :class => "top__image"
 / メイン全体のラップ
 %main.main
   %h1.main__pick-up ピックアップカテゴリー
@@ -278,7 +273,6 @@
                 %span.products__good-point 0
       %section.bottom
         = image_tag 'bottom-image.jpg', :class => "bottom-image"
-        %img.bottom-image{:src => "bottom-image.jpg"}/
       %a.sel-button{:href => ""}
         %p.sel-button-text 出品
         %i.fa.fa-camera
