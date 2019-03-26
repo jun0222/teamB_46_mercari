@@ -4,9 +4,17 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title TeamB46Mercari
     = csrf_meta_tags
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+
+
+
+
   %body
     %header
       = link_to "ログアウト", destroy_user_session_path, method: :delete
