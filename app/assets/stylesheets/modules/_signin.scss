@@ -18,15 +18,21 @@ a {
   color: #0099e8;
   text-decoration: none;
 }
+img {
+  // chrome
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
 /*---------------- ヘッダー -----------------*/
 .single-header {
   height: 128px;
   text-align: center;
   background-color: #eee;
 }
-.single-header h1 {
-  padding: 40px 0 0;
-}
+
 .single-header a {
   display: inline-block;
   width: 185px;
@@ -150,7 +156,8 @@ a {
 .single-footer {
   height: 220px;
   width: 456px;
-  padding: 40px 0;
+  padding:0;
+  padding-top: 40px;
   text-align: center;
   margin: 0 auto;
   background-color: #eee;

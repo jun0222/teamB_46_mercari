@@ -4,8 +4,8 @@
     %header.single-header
       %h1
         %a{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "49px", :src => "logo.svg", :width => "185px"}/
-          %svg {xmlns="http://www.w3.org/2000/svg" width="185px" height="49px"}
+          = image_tag "logo.svg"
+          / :alt => "mercari", :height => "49px", :src => "logo.svg", :width => "185px"
     %main.single-main
       .login-panel
         .login-no-account
@@ -64,6 +64,5 @@
             %li
               %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
         %a.single-footer-logo{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :height => "65", :src => "logo-gray.svg", :width => "80"}/
-        %p
-          %small © 2019 Mercari
+          = image_tag "logo-gray.svg"
+          %small ©&nbsp;2019&nbsp;Mercari
