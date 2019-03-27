@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new, :show]
 
   resources :users
-  resources :mypage
 end
