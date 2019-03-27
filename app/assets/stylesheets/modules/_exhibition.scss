@@ -1,3 +1,10 @@
+.bgred{
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  padding:2px 3px;
+  margin-right: 120px;
+}
 .wrapper__top{
   text-align: center;
   height: 88px;
@@ -121,6 +128,8 @@
 .wrapper__main__list-price .wrapper__main__list_select_top{
   border-bottom:2px solid #f5f5f5;
   position:relative;
+  height: 60px;
+  line-height: 60px;
 }
 .wrapper__main__list-price .wrapper__main__list_select_center{
   border-bottom:2px solid #f5f5f5;
@@ -174,7 +183,7 @@
   height: 48px;
   margin-top:24px;
   position: absolute;
-  left:235;
+  left:calc(calc(700px - 227px) / 2);
 }
 .wrapper__bottom{
 width:456px;
