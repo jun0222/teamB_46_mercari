@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :new]
 
   resources :products, only: [:index, :new, :show]
-
-  resources :users
+  get 'users/logout' => 'users#logout'
+  resources 'users'
 end
