@@ -1,6 +1,7 @@
 .top__image, .bottom-image{
     width: 100%;
   }
+
   .products__title, .main__pick-up{
     text-align: center;
   }
@@ -41,3 +42,7 @@
   a{
     text-decoration: none;
   }
+.products__title-product-col section{
+  margin-bottom:-4px;
+}
+
