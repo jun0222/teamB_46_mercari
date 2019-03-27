@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 20190327102820) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "prefecture_id"
-    t.string   "city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
     t.text     "content",    limit: 65535, null: false
