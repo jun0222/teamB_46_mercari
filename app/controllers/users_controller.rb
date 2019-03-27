@@ -5,4 +5,6 @@ class UsersController < ApplicationController
   end
   def credit
   end
+  def profile
+  end
 end

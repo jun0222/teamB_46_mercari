@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users do
     get :logout, on: :member
     get :credit, on: :member
+    get :profile, on: :member
   end
 end
