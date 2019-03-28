@@ -8,5 +8,6 @@ class UsersController < ApplicationController
   def profile
   end
   def registration
+    @product = Product.new
   end
 end
