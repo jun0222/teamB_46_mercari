@@ -4,7 +4,7 @@
       %ul.wrapper-mypage__side__nav__lists
         %li
           .wrapper-mypage__side__nav__lists__list.first-mypage
-            =link_to 'マイページ', "/users/index"
+            =link_to 'マイページ', users_path
             %span.fa.fa-chevron-right
         %li
           .wrapper-mypage__side__nav__lists__list
@@ -72,7 +72,7 @@
         %h3 設定
         %li
           .wrapper-mypage__side__nav__lists__list
-            =link_to 'プロフィール', "#"
+            =link_to 'プロフィール', profile_user_path(current_user)
             %span.fa.fa-chevron-right
         %li
           .wrapper-mypage__side__nav__lists__list
@@ -80,7 +80,7 @@
             %span.fa.fa-chevron-right
         %li
           .wrapper-mypage__side__nav__lists__list
-            =link_to '支払い方法', "#"
+            =link_to '支払い方法', credit_user_path(current_user)
             %span.fa.fa-chevron-right
         %li
           .wrapper-mypage__side__nav__lists__list
@@ -96,7 +96,7 @@
             %span.fa.fa-chevron-right
         %li
           .wrapper-mypage__side__nav__lists__list
-            =link_to 'ログアウト', "/users/logout"
+            =link_to 'ログアウト', logout_user_path(current_user)
             %span.fa.fa-chevron-right
   .wrapper-mypage__main
     .wrapper-mypage__main__top

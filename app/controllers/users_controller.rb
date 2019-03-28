@@ -3,4 +3,8 @@ class UsersController < ApplicationController
   end
   def logout
   end
+  def credit
+  end
+  def profile
+  end
 end
