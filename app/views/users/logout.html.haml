@@ -58,7 +58,7 @@
           .wrapper-logout__side__nav__lists__list
             =link_to '問い合わせ', "#"
             %span.fa.fa-chevron-right
-      %ul.wrapper-logout__side__nav__lists__lists
+      %ul.wrapper-logout__side__nav__lists
         %h3 メルペイ
         %li
           .wrapper-logout__side__nav__lists__list
@@ -88,7 +88,7 @@
             %span.fa.fa-chevron-right
         %li
           .wrapper-logout__side__nav__lists__list
-            =link_to '本人情報', "#"
+            =link_to '本人情報', registration_user_path(current_user)
             %span.fa.fa-chevron-right
         %li
           .wrapper-logout__side__nav__lists__list

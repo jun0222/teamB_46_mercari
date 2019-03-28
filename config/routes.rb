@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     get :logout, on: :member
     get :credit, on: :member
     get :profile, on: :member
+    get :registration, on: :member
   end
 end
