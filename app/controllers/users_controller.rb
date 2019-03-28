@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   end
   def profile
   end
+  def presignup
+  end
   def registration
     @product = Product.new
   end
