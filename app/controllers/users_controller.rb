@@ -7,4 +7,6 @@ class UsersController < ApplicationController
   end
   def profile
   end
+  def presignup
+  end
 end
