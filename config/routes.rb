@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     get :credit, on: :member
     get :profile, on: :member
     get :presignup, on: :member
+    get :registration, on: :member
   end
 end

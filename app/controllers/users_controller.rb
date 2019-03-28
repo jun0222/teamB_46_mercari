@@ -9,4 +9,7 @@ class UsersController < ApplicationController
   end
   def presignup
   end
+  def registration
+    @product = Product.new
+  end
 end
