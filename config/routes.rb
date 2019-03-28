@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  get :presignup, to: 'users#presignup'
   resources :products, only: [:index, :new]
 
   resources :products, only: [:index, :new, :show]
