@@ -2,8 +2,8 @@
   .header-inner
     .header-inner__top
       .header-inner__top__left
-        %a{:href => "https://gyazo.com/75329b28b2f5185097c4a3fac552c817"}
-        %img{:alt => "Image from Gyazo", :src => "https://i.gyazo.com/75329b28b2f5185097c4a3fac552c817.png", :width => "148"}/
+      =link_to products_path, target: "_black" do
+        =image_tag "https://i.gyazo.com/75329b28b2f5185097c4a3fac552c817.png", width: 148
       .header-inner__top__right
         %input{:name => "keyword", :placeholder => "キーワードから探す", :type => "search"}/
         %span.fa.fa-search
@@ -16,8 +16,8 @@
           %span.fa.fa-user-circle>
           =link_to 'マイページ', users_path
         %a
-        %span.fa.fa-bell>
-        お知らせ
+          %span.fa.fa-bell>
+          お知らせ
         %a
-        %span.fa.fa-check>
-        やることリスト
+          %span.fa.fa-check>
+          やることリスト
