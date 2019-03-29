@@ -66,13 +66,14 @@ body{
     color:black;
     text-align:center;
     display: inline-block;
+    position:relative;
     button{
       width:572px;
       height: 50px;
       background-color:#ea352d;
       position:absolute;
-      top:245px;
-      right:165px;
+      top:65px;
+      right:40px;
       a{
         color:white;
       }
