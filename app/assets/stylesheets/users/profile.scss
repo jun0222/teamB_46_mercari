@@ -10,6 +10,7 @@ body{
     width:650px;
     float:right;
     margin-top:-20px;
+    position:relative;
     display:inline-block;
     &__top{
       &__head{
@@ -32,8 +33,7 @@ body{
           width:650px;
           background-color: grey;
           position:absolute;
-          top:225px;
-          right:118px;
+          top:65px;
           i{
             font-size:50px;
             position:absolute;
@@ -55,8 +55,7 @@ body{
           height:362px;
           width:650px;
           position:absolute;
-          top:400px;
-          right:118px;
+          top:250px;
           &__area{
             padding:10;
             width:618px;
