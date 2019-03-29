@@ -1,4 +1,5 @@
 .wrapper
+= form_for @product do |f|
   .wrapper__top
     %a{:herf => "https://www.mercari.com/jp/"}
       %img{:alt => "mercari", :height => "49", :src => "image/logo.mercari.svg", :width => "185"}/
@@ -11,22 +12,19 @@
         %span.bgred 必須
       %p 最大10枚までアップロードできます
       .wrapper__main__image__drop-box
-        %input/
-        %pre
-          :preserve
-                  ドラッグアンドドロップ
-                  またはクリックしてファイルをアップロード
+        %label#input-label{:for => "01"}
+          %input{:name => "image", :type => "file", :value => "ファイルを選択", :id => "image__drop-box", :multiple => "multiple"}/
     .wrapper__main__item
       .wrapper__main__item__name
         %h3
           商品名
           %span.bgred 必須
-        %input{:placeholder => "商品名(必須40文字まで)"}/
+        = f.text_field :name, placeholder: '商品名(必須40文字まで)'
       .wrapper__main__item__text
         %h3
           商品の説明
           %span.bgred 必須
-        %textarea{:placeholder => "商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        = f.text_field :detail, placeholder: ' 商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', :size => "60x15"
     .wrapper__main__list-item
       .wrapper__main__list__name
         %p 商品の商品
@@ -80,8 +78,7 @@
           %p
             発送元の地域
             %span.bgred 必須
-            = form_for @product do |f|
-              = f.collection_select :shipping, Prefecture.all, :id, :name
+            = f.collection_select :shipping, Prefecture.all, :id, :name
         .wrapper__main__list_select_bottom
           %p
             発送までの日数
@@ -103,7 +100,7 @@
             %span.bgred 必須
           %span.children
             ¥
-            %input{:placeholder => "                          例）300"}/
+            = f.text_field :price, placeholder: '                          例）300', :class => 'aligncenter'
         .wrapper__main__list_select_center
           %p 販売手数料(10%)
           %a.children -
