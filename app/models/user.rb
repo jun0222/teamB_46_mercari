@@ -7,4 +7,6 @@ class User < ApplicationRecord
          validates :email, :phone_number , uniqueness: true
          validates :phone_number, length: { maximum: 11 }
          validates :phone_number, length: { minimum: 10 }
+
+  has_many :products
 end

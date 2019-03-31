@@ -15,23 +15,24 @@
         / 個々の商品ラップ
         -@products.each do |product|
           .products__product
-            = image_tag url_to_image(product.image), :class => "product-image"
-            /商品の画像
-            .products__product-bottom
-              %p.products__product-text
-                = product.name
-                /商品の名前
-              .products__product-info-wrap
-                %p.products__price
-                  ¥
-                  = product.price
-                  %br/
-                  %span.tax (税込)
-                  /商品の値段
-                %p.products__goods
-                  %i.fa.fa-heart-o
-                    %span.products__good-point
-                      0
+            =link_to user_product_path(product.user, product), target: "_blank" do
+              = image_tag url_to_image(product.image), :class => "product-image"
+              /商品の画像
+              .products__product-bottom
+                %p.products__product-text
+                  = product.name
+                  /商品の名前
+                .products__product-info-wrap
+                  %p.products__price
+                    ¥
+                    = product.price
+                    %br/
+                    %span.tax (税込)
+                    /商品の値段
+                  %p.products__goods
+                    %i.fa.fa-heart-o
+                      %span.products__good-point
+                        0
                       /商品のいいね！数
       %section.bottom
         = image_tag 'bottom-image.jpg', :class => "bottom-image"

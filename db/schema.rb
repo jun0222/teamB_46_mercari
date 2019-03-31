@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20190329071955) do
     t.integer  "price"
     t.text     "image",      limit: 65535
     t.string   "shipping",                 null: false
+    t.integer  "user_id"
     t.text     "detail",     limit: 65535, null: false
   end
 
