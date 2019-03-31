@@ -2,6 +2,29 @@ body{
   margin:0;
   background-color: #f5f5f5;
 }
+/*--------------パンくずリスト-------------*/
+.breadcrumbs {
+  position: relative;
+  height: 29px;
+  border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  padding: 10px 173px 9px;
+  font-size: 14px;
+}
+// アンカータグを黒にする
+.breadcrumbs a {
+  color: #333;
+}
+.breadcrumbs a:hover {
+  opacity: 0.55;
+  text-decoration: underline;
+}
+.current {
+  font-weight: 600;
+}
+// ---------------------------------------
 .wrapper-mypage{
   width:1020px;
   height:1500px;
