@@ -10,8 +10,9 @@
 
   %body
 
-    = render "layouts/header"
 
+    = render "layouts/header"
+    = breadcrumbs pretext: "", separator: " &rsaquo; "
     = yield
 
     = render "layouts/footer"
