@@ -10,11 +10,10 @@
     %script{:src => "https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"}
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://js.pay.jp/", :type => "text/javascript"}
+    :javascript
+      Payjp.setPublicKey('pk_test_0383a1b8f91e8a6e3ea0e2a9');
     %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
-
-
-
-
   %body
     %header
       = link_to "ログアウト", destroy_user_session_path, method: :delete
