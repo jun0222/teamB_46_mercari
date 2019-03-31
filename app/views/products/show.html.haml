@@ -30,11 +30,14 @@
       %tr
         %td.pstd.pstdl カテゴリー
         %td.pstd
-          %a{:href => ""} レディース
+          =link_to do
+            レディース
           %br/
-          %a{:href => ""} ワンピース
+          =link_to do
+            ワンピース
           %br/
-          %a{:href => ""} ひざ丈ワンピース
+          =link_to do
+            ひざ丈ワンピース
       %tr
         %td.pstd.pstdl ブランド
         %td.pstd
@@ -74,37 +77,39 @@
       %br/
   / 安全面への考慮
   %section.secure
-    %a.secure__good
+    %p.secure__good
       %span.fa.fa-heart
       いいね！0
-    %a.secure__bad-product
+    %p.secure__bad-product
       %span.fa.fa-flag
       不適切な商品の報告
-    %a.secure__action
+    %p.secure__action
       %span.fa.fa-lock
       あんしん・あんぜんへの取り組み
   / 隣接商品へのリンク
   %section.back-next-links
     %p.back-next-links__back-link
-      %a{:href => ""} &lt; ☆オーガンジー巾着袋（大）☆20枚セット
+      =link_to do
+        &lt; ☆オーガンジー巾着袋（大）☆20枚セット
     %p.back-next-links__next-link
-      %a{:href => ""} SONY NEX5R 標準レンズ、外付けストロボ、箱付き &gt;
+      =link_to do
+        SONY NEX5R 標準レンズ、外付けストロボ、箱付き &gt;
   / SNSサイトへのリンク
   %section.sns-links
     .sns-links__wrap
-      %a{:href => ""}
-        %img{:alt => "Image from Gyazo", :src => "https://i.gyazo.com/c7e3149fe7b2f31ce00066cd9455b761.png", :width => "46"}/
-      %a{:href => ""}
-        %img{:alt => "Image from Gyazo", :src => "https://i.gyazo.com/d98f61c1eab7367b329f40664037cfbb.png", :width => "46"}/
-      %a{:href => ""}
-        %img{:alt => "Image from Gyazo", :src => "https://i.gyazo.com/2b85b97bf69c3c1173ada2b13473490b.png", :width => "46"}/
+      =link_to do
+        = image_tag( "https://i.gyazo.com/c7e3149fe7b2f31ce00066cd9455b761.png", :width => "46", :alt => "Image from Gyazo")
+      = link_to do
+        = image_tag( "https://i.gyazo.com/d98f61c1eab7367b329f40664037cfbb.png", :width => "46", :alt => "Image from Gyazo")
+      =link_to do
+        = image_tag( "https://i.gyazo.com/2b85b97bf69c3c1173ada2b13473490b.png", :width => "46", :alt => "Image from Gyazo")
   .sns-links-bottom
   %section.other-products
     / 同一ユーザーの他の商品
     %h2.other-products__same-user
-      %a{:href => ""}
-      =@user.nickname
-      さんの他の出品
+      =link_to do
+        =@user.nickname
+        さんの他の出品
     / 商品の行
     .other-products__product-col
       / 個別の商品

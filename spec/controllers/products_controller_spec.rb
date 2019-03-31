@@ -23,12 +23,3 @@ describe 'GET #show' do
     end
   end
 end
-
-
-
-
-
-
-
-
-
