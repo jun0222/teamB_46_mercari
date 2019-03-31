@@ -1,14 +1,16 @@
+.main-show{
+    background: #fff;
+    width: 700px;
+    margin: 30px auto;
+    overflow: hidden;
+  }
 a{
   text-decoration: none;
   }
   .top-explanation__title{
     text-align: center;
-  }
-  .main{
-    background: #fff;
-    width: 700px;
-    margin: 30px auto;
-    overflow: hidden;
+    font-weight: bold;
+    font-size:25px;
   }
   .image-and-table__image{
     height: 15px;
@@ -22,16 +24,18 @@ a{
   .pstable{
     margin-top: 0;
     height: 400px;
+    float:right;
   }
   .top-explanation{
     margin-top: 30px;
   }
   .top-explanation__content{
-    margin-top: 10px;
+    margin: 10px 30px 0;
+    font-size:14px;
+    color:gray;
   }
   .image-and-table{
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 20px 65px 0;
     overflow: hidden;
   }
   .pstd{
@@ -43,10 +47,12 @@ a{
   .secure__good,.secure__bad-product{
     background-color: #f5f5f5;
     border-radius: 30px;
-    margin-right: 100px;
+    padding:10px;
   }
   .price-and-button__price{
     text-align: center;
+    font-size:40px;
+    font-weight: bold;
   }
   .price-and-button__yen{
     font-size: 40px;
@@ -75,11 +81,14 @@ a{
     margin-top: 30px;
   }
   .price-and-button__submit{
-    margin-top: 15px;
+    margin:15px 23px;
     padding: 10px 240px;
     background-color: #ea352d;
     color: #fff;
     font-size: 25px;
+  }
+  .comment{
+    margin:30px;
   }
   .sns-links{
     background: white;
@@ -123,9 +132,10 @@ a{
     height: 100%;
     width: 100%;
   }
-  .price{
-    float: left;
-  }
-  .goods{
-    float: right;
-  }
+.secure{
+  text-align: center;
+  height:60px;
+}
+.secure a{
+  margin-right:10px;
+}
