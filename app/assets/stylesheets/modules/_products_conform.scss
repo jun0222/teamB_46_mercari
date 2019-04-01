@@ -173,28 +173,30 @@ ul li {
 }
 .radio-default {
   position: relative;
+  label{
+    margin: 0 0 0 28px;
+    font-weight: 400;
+    cursor: pointer;
+    line-height: 28px;
+  }
+  input[type="radio"]{
+    position: absolute;/* ボックスの位置を指定する */
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
 }
-.radio-default label {
-  margin: 0 0 0 28px;
-  font-weight: 400;
-  cursor: pointer;
-  line-height: 28px;
-}
-.radio-default input[type="radio"] {
-  position: absolute;/* ボックスの位置を指定する */
-  top: 50%;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  background: #fff;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-}
+
+
 /*ポイント入力*/
 .input-default {
   height: 28px;
