@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+ source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'factory_bot_rails'
   gem 'pry-doc'
   gem 'rails-controller-testing'
 end
@@ -76,3 +77,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'rails-i18n'
 gem 'active_hash'
+gem 'ancestry'
+gem 'gretel'
