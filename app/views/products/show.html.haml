@@ -63,7 +63,8 @@
       %span.price-and-button__yen>¥
       =@product.price
       (税込)送料込み
-    %input.price-and-button__submit{:type => "submit", :value => "購入画面に進む"}/
+    %button.price-and-button__submit{:type => "submit"}/
+    =link_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id)
   / ユーザーが入力する商品説明
   %section.comment
     =@product.content
