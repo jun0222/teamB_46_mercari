@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :conform]
   def index
     @products = Product.all
   end
@@ -10,19 +11,10 @@ class ProductsController < ApplicationController
   def create
   end
 
-  def show
+  def set_product
      @product = Product.find(params[:id])
      @user = User.find(params[:user_id])
-     @products = Product.where(user_id:
-      params[:user_id])
+     @products = Product.where(user_id: params[:user_id])
   end
-  def conform
-    @product = Product.find(params[:id])
-     @user = User.find(params[:user_id])
-     @products = Product.where(user_id:
-      params[:user_id])
-
-  end
-
 
 end

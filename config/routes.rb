@@ -3,14 +3,16 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: [:index, :new]
 
+
   resources :users do
+    resources :products, only: [:show] do
+      get :conform, on: :member
+    end
     get :logout, on: :member
     get :credit, on: :member
     get :profile, on: :member
     get :presignup, on: :member
     get :registration, on: :member
   end
-get 'users/:user_id/products/:id' =>'products#show', as: :user_product
-get 'users/:user_id/products/:id/conform' => 'products#conform', as: :product_conform
 
 end

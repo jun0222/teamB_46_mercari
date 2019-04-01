@@ -64,7 +64,7 @@
       =@product.price
       (税込)送料込み
     %button.price-and-button__submit{:type => "submit"}/
-    =link_to '購入画面に進む', product_conform_path(@product.user_id,@product.id)
+    =link_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id)
   / ユーザーが入力する商品説明
   %section.comment
     =@product.content
