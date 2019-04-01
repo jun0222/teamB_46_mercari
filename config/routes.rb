@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     get :registration, on: :member
   end
 get 'users/:user_id/products/:id' =>'products#show', as: :user_product
+get 'users/:user_id/products/:id/conform' => 'products#conform', as: :product_conform
 
 end
