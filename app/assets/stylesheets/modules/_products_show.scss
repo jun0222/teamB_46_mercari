@@ -81,11 +81,17 @@ a{
     margin-top: 30px;
   }
   .price-and-button__submit{
-    margin:15px 23px;
-    padding: 10px 240px;
+    margin:15px 42px;
+    padding: 10px 220px;
     background-color: #ea352d;
     color: #fff;
     font-size: 25px;
+    &:active{
+      opacity:0.8;
+    }
+    a{
+      color:white;
+    }
   }
   .comment{
     margin:30px;

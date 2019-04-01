@@ -1,0 +1,98 @@
+.single-container
+  / -------------- ヘッダー ---------------------
+  %header.single-header
+    %h1
+      =link_to products_path, target: "_black" do
+        =image_tag "https://i.gyazo.com/55694776f48f7cf4190906c84f120fce.png", width: 207
+  / -------------- 入力画面メイン --------------
+  %main.single-main
+    %section.l-single-container
+      %section.l-single-content
+        %h2.l-single-head 購入を確認しますか？
+      %section.l-single-content
+        .buy-content-inner
+          = image_tag url_to_image(@product.image)
+          %p.buy-item-name
+          =@product.name
+          %form.buy-form
+            %p.buy-price
+              ¥
+              =@product.price
+              %span.item-shipping 送料込み
+            / ポイント系
+            .menu
+              %label.menu__label{:for => "menu_bar01"} ポイントを使う
+              %i.icon-arrow-bottom.accordion-icon
+              %input#menu_bar01.accordion{:type => "checkbox"}/
+              %ul#links01.accordion-parent
+                %ul.accordion-child
+                  %li 所持ポイント: P 2,445
+                  %li.form-group
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}/
+                        ポイントを使わない
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
+                        %input{:type => "hidden", :value => "2445"}/
+                        すべてのポイントを使う
+                        %br>/
+                        P 2,445
+                    .radio-default
+                      %label
+                        %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
+                        一部のポイントを使う
+                    %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
+                    %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
+            %ul.buy-price-table
+              %li.buy-price-row.buy-you-pay.bold
+                .buy-price-cell1 支払い金額
+                .buy-price-cell2
+                  %span{"data-buy-pay" => ""} ¥
+                  =@product.price
+          .button
+            %button.btn-default.btn-red{:type => "submit"} 購入する
+      / 配送先、支払い方法
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 配送先
+          %address.buy-user-info-text
+            〒
+            =@user.post_address
+            %br/
+            =@user.address
+            %br/
+            =@user.nickname
+          %p.buy-user-info-text
+          %a.buy-user-info-fix{:href => "#"}
+            %span 変更する
+            %i.icon-arrow-right
+      %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+        .buy-content-inner
+          %h3 支払い方法
+          %p.buy-user-info-text
+            ***********1234
+            %br/
+            01 / 01
+          %figure
+            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1355968437"
+            =link_to "","#", class: "buy-user-info-fix"
+            %span 変更する
+            %i.icon-arrow-right
+  / --------------------- フッター--------------------
+  .wrapper
+    %footer.single-footer
+      %nav
+        %ul.clearfix
+          %li
+            =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy"
+          %li
+            =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
+          %li
+            =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
+      =link_to products_path, target: "_black", class: "single-footer-logo" do
+        =image_tag "https://i.gyazo.com/13c20169c5519e47f5751462f12c04e6.png", width: 80
+      %p
+        %small © 2019 Mercari
+  / --------------------- フッターend----------------
