@@ -1,0 +1,110 @@
+.wrapper-credit
+  .wrapper-credit__side
+    %nav.wrapper-credit__side__nav
+      %ul.wrapper-credit__side__nav__lists
+        %li
+          .wrapper-credit__side__nav__lists__list.first
+            =link_to 'マイページ', users_path
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            お知らせ
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            やることリスト
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            いいね！一覧
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            出品する
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            出品した商品-出品中
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            出品した商品-取引中
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            出品した商品-売却済み
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            購入した商品-取引中
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            購入した商品-過去の取引
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            ニュース一覧
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            評価一覧
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            ガイド
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            問い合わせ
+            %span.fa.fa-chevron-right
+      %ul.wrapper-credit__side__nav__lists
+        %h3 メルペイ
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            売上・振込申請
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            ポイント
+            %span.fa.fa-chevron-right
+      %ul.wrapper-credit__side__nav__lists
+        %h3 設定
+        %li
+          .wrapper-credit__side__nav__lists__list
+            =link_to 'プロフィール', profile_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            発送元・お届け先住所
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list
+            =link_to '支払い方法',
+            credit_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            メール/パスワード
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list
+            =link_to '本人情報', registration_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list{:herf => "#"}
+            電話番号の確認
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-credit__side__nav__lists__list
+            =link_to 'ログアウト', logout_user_path(current_user)
+            %span.fa.fa-chevron-right
+  .wrapper-credit__main
+    .wrapper-credit__main__top
+      %h2 支払い方法
+    .wrapper-credit__main__content
+      %p クレジットカード一覧
+      %button
+        %span.fa.fa-credit-card クレジットカードを追加する
+    .wrapper-credit__main__bottom
+      %a 支払い方法について &gt;

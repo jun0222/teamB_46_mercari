@@ -1,0 +1,244 @@
+body{
+  margin:0;
+  background-color: #f5f5f5;
+}
+/*--------------パンくずリスト-------------*/
+.breadcrumbs {
+  position: relative;
+  height: 29px;
+  border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  padding: 10px 173px 9px;
+  font-size: 14px;
+}
+// アンカータグを黒にする
+.breadcrumbs a {
+  color: #333;
+}
+.breadcrumbs a:hover {
+  opacity: 0.55;
+  text-decoration: underline;
+}
+.current {
+  font-weight: 600;
+}
+// ---------------------------------------
+.wrapper-mypage{
+  width:1020px;
+  height:1500px;
+  margin: 40px auto 0;
+  &__main{
+    width:650px;
+    float:right;
+    display:inline-block;
+    &__top{
+      &__head{
+        width:650px;
+        height:200px;
+        background-color:gray;
+        color:black;
+        text-align:center;
+        display: inline-block;
+        .fa-user-circle{
+          font-size:50px;
+          margin-top:30px;
+        }
+        a{
+          color:black;
+        }
+      }
+      &__body{
+        &__tag{
+          background-color:#ccc;
+          position: relative;
+          a{
+            color:black;
+          }
+          .active{
+            width:325px;
+            height: 70px;
+            background-color:white;
+            border-top:2px solid #ff4500;
+          }
+          .non-active{
+            width:325px;
+            height: 70px;
+            position:absolute;
+          }
+          a{
+            display:inline-block;
+            text-align: center;
+            line-height: 4.3;
+          }
+        }
+        &__content{
+          &__lists{
+            list-style: none;
+            margin:0;
+            padding:0;
+            &__list{
+              width:650px;
+              height:80px;
+              background-color:white;
+              border-bottom:2px solid #f5f5f5;
+              position: relative;
+              a{
+                color:black;
+                text-decoration:none;
+                display: inline-block;
+                width:550px;
+                font-size:14px;
+                cursor:pointer;
+                float: right;
+                position: absolute;
+                top:10px;
+                left:80px;
+              }
+              &__icon{
+                height: 80px;
+                width:80px;
+                position: relative;
+                img{
+                  position: absolute;
+                  top:16px;
+                  left:16px;
+                }
+              }
+              &__more{
+                  background-color:white;
+                  width:650px;
+                  height: 80px;
+                  position:relative;
+                  a{
+                    display:block;
+                    background-color:#eee;
+                    width:618px;
+                    height:56px;
+                    text-align: center;
+                    line-height: 3.5;
+                    position: absolute;
+                    top:12px;
+                    left:16px;
+                    cursor:pointer;
+                  }
+                }
+              p{
+                font-size:14px;
+                position:absolute;
+                top:55px;
+                left:80px;
+
+              }
+            }
+          }
+        }
+      }
+    }
+    &__bottom{
+      width:650px;
+      min-height:382px;
+      margin-top:40px;
+      &__head{
+        width:618px;
+        height: 72px;
+        padding:0 16px;
+        background-color:#fafafa;
+        h3{
+          line-height: 72px;
+          font-size:16px;
+          font-weight: bold;
+        }
+      }
+      &__body{
+        &__tag{
+          width:650px;
+          height: 72px;
+          background-color:#eeeeee;
+          position:relative;
+          .active{
+            width:325px;
+            height: 70px;
+            background-color:white;
+            border-top:2px solid #ff4500;
+          }
+          .non-active{
+            width:325px;
+            height: 70px;
+            position:absolute;
+          }
+          a{
+            display:inline-block;
+            text-align: center;
+            line-height: 4.3;
+            color:black;
+          }
+        }
+        &_content{
+          width:650px;
+          height:236px;
+          background-color:white;
+          img{
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  &__side{
+    width:280px;
+    float:left;
+    margin-right:80px;
+    &__nav{
+      ul{
+        list-style: none;
+      }
+      h3{
+        margin-top:40px;
+        font-size:15px;
+        font-weight: bold;
+      }
+      &__lists{
+        &__list{
+          border : 1px solid #f5f5f5;
+          background-color: white;
+          width:275px;
+          height: 48px;
+          display: inline-block;
+          line-height: 3.5;
+          padding-left:5px;
+          a{
+            color:black;
+          }
+          &:hover{
+            background-color:#f8f8ff;
+            color:black;
+            span{
+              color:black;
+              font-size:20px;
+              line-height: 2.5;
+            }
+          }
+        }
+        a{
+          font-size:14px;
+        }
+        span{
+          float:right;
+          line-height: 3;
+          padding-right:5px;
+          color:#ccc;
+        }
+        .first-mypage{
+          background-color: #eee;
+          font-weight:600;
+          &:hover{
+             background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+}
+
