@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
       @parent = Tree.find(params[:category])
       @children = Tree.children_of @parent
     end
-    binding.pry
   end
 
   def set_product
