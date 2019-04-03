@@ -1,0 +1,140 @@
+.wrapper-myproducts{
+  width:1020px;
+  height:1500px;
+  margin: 40px auto 0;
+  &__side{
+      width:280px;
+      float:left;
+      margin-right:80px;
+      &__nav{
+        ul{
+          list-style: none;
+        }
+        h3{
+          margin-top:40px;
+          font-size:15px;
+          font-weight: bold;
+        }
+        &__lists{
+          &__list{
+            border : 1px solid #f5f5f5;
+            background-color: white;
+            width:275px;
+            height: 48px;
+            display: inline-block;
+            line-height: 3.5;
+            padding-left:5px;
+            a{
+              color:black;
+            }
+            &:hover{
+              background-color:#f8f8ff;
+              color:black;
+              span{
+                color:black;
+                font-size:20px;
+                line-height: 2.5;
+              }
+            }
+          }
+          a{
+            font-size:14px;
+          }
+          span{
+            float:right;
+            line-height: 3;
+            padding-right:5px;
+            color:#ccc;
+          }
+          .first-myproducts{
+            background-color: #eee;
+            font-weight:600;
+            &:hover{
+               background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+  &__main{
+    width:650px;
+    float:right;
+    display:inline-block;
+    &__head{
+      background-color:#f5f5f5;
+      width:650px;
+      height:72px;
+      h3{
+        font-size:18px;
+        font-weight: bold;
+        line-height: 4;
+        padding-left:10px;
+      }
+    }
+    &__tab{
+      width:650px;
+      height: 72px;
+      background-color:white;
+      text-align: center;
+      &__exhibition{
+        float:left;
+        height: 70px;
+        width:33%;
+        line-height: 4.5;
+        border-top:2px solid #ff4500;
+        h3{
+        font-weight: bold;
+        }
+      }
+      &__trading{
+        float:left;
+        width:33%;
+        line-height: 4.5;
+        background-color:#a9a9a9;
+        h3{
+        font-weight: bold;
+        }
+      }
+      &__sold{
+        float:left;
+        width:34%;
+        line-height: 4.5;
+        background-color:#a9a9a9;
+        h3{
+        font-weight: bold;
+        }
+      }
+    }
+    &__products{
+      width:650px;
+      min-height: 240px;
+      background-color:white;
+      ul.wrapper-myproducts__main__products__lists{
+        li.wrapper-myproduct__main__products__lists_list{
+          height: 80px;
+          border-bottom:2px solid #eee;
+          img{
+            width:60px;
+            height: 60px;
+            float:left;
+            margin:10px;
+          }
+          .products__product-right{
+            color:black;
+            padding-top:10px;
+            .fa{
+              color:gray;
+            }
+            span{
+              padding:3px;
+              background-color:#00bfff;
+              color:white;
+              border-radius:3px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
