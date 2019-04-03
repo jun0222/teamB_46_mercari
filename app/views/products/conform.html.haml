@@ -13,7 +13,7 @@
         .buy-content-inner
           = image_tag url_to_image(@product.image)
           %p.buy-item-name
-          =@product.name
+          = @product.name
           %form.buy-form
             %p.buy-price
               ¥
@@ -52,7 +52,11 @@
                   %span{"data-buy-pay" => ""} ¥
                   =@product.price
           .button
-            %button.btn-default.btn-red{:type => "submit"} 購入する
+            / = form_tag(user_products_path,method: :post) do
+            = form_tag(action: :purchase, method: :post) do
+              %script.payjp-button{"data-key" => "#{PAYJP_PUBLIC_KEY}", :src => "https://checkout.pay.jp", :type => "text/javascript","data-text" => "購入する"}
+              %input{name: "product_id", type: "hidden", value: @product.id}
+
       / 配送先、支払い方法
       %section.buy-content.buy-user-info
         .buy-content-inner
@@ -78,8 +82,9 @@
           %figure
             =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?1355968437"
             =link_to "","#", class: "buy-user-info-fix"
-            %span 変更する
-            %i.icon-arrow-right
+            %a.buy-user-info-fix{:href => "#"}
+              %span 変更する
+              %i.icon-arrow-right
   / --------------------- フッター--------------------
   .wrapper
     %footer.single-footer

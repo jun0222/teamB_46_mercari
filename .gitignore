@@ -19,3 +19,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#PAY.jp secret KEY
+config/initializers/setting.rb

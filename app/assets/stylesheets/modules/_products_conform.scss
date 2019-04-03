@@ -196,7 +196,14 @@ ul li {
   }
 }
 
-
+// 購入決済
+#payjp_checkout_box input[type=button]{
+  width: 320px;
+  height: 50px;
+  background-color: red;
+  background-image: red;
+  font-size: 14px;
+}
 /*ポイント入力*/
 .input-default {
   height: 28px;
