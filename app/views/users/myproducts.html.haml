@@ -1,0 +1,127 @@
+.wrapper-myproducts
+  .wrapper-myproducts__side
+    %nav.wrapper--myproducts__side__nav
+      %ul.wrapper--myproducts__side__nav__lists
+        %li
+          .wrapper-myproducts__side__nav__lists__list.first--myproducts
+            =link_to 'マイページ', users_path
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'お知らせ', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'やることリスト', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'いいね！一覧', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '出品する', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '出品した商品-出品中',  myproducts_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '出品した商品-取引中', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '出品した商品-売却済み', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '購入した商品-取引中', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '購入した商品-過去の取引', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'ニュース一覧', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '評価一覧', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'ガイド', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '問い合わせ', "#"
+            %span.fa.fa-chevron-right
+      %ul.wrapper-myproducts__side__nav__lists__lists
+        %h3 メルペイ
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '売上・振込申請', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'ポイント', "#"
+            %span.fa.fa-chevron-right
+      %ul.wrapper-myproducts__side__nav__lists
+        %h3 設定
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'プロフィール', profile_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '発送元・お届け先住所', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '支払い方法', credit_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'メール/パスワード', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '本人情報', registration_user_path(current_user)
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to '電話番号の確認', "#"
+            %span.fa.fa-chevron-right
+        %li
+          .wrapper-myproducts__side__nav__lists__list
+            =link_to 'ログアウト', logout_user_path(current_user)
+            %span.fa.fa-chevron-right
+  .wrapper-myproducts__main
+    .wrapper-myproducts__main__head
+      %h3 出品した商品
+    .wrapper-myproducts__main__tab
+      .wrapper-myproducts__main__tab__exhibition
+        %h3 出品中
+      .wrapper-myproducts__main__tab__trading
+        %h3 取引中
+      .wrapper-myproducts__main__tab__sold
+        %h3 売却済み
+    .wrapper-myproducts__main__products
+      %ul.wrapper-myproducts__main__products__lists
+        -@products.each do |product|
+          %li.wrapper-myproduct__main__products__lists_list
+            =link_to myshow_user_product_path(product.user, product), target: "_blank" do
+              = image_tag url_to_image(product.image), :class => "product-image"
+              /商品の画像
+              .products__product-right
+                %p.products__product-name
+                  = product.name
+                  /商品の名前
+                %p.fa.fa-heart
+                33
+                %p.fa.fa-comment-alt
+                4
+                %span
+                  出品中

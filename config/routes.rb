@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   resources :users do
     resources :products, only: [:show] do
       get :conform, on: :member
+      get :myshow, on: :member
     end
     get :logout, on: :member
     get :credit, on: :member
     get :profile, on: :member
     get :presignup, on: :member
     get :registration, on: :member
+    get :myproducts, on: :member
   end
+  delete 'products/:id' => 'products#destroy', as: 'pruduct_delete'
 
 end
