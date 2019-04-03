@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
     else
       render "products/new"
     end
-  end
 
   def set_product
      @product = Product.find(params[:id])
