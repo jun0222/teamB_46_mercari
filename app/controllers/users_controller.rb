@@ -12,7 +12,4 @@ class UsersController < ApplicationController
   def registration
     @product = Product.new
   end
-  def myproducts
-    @products = Product.where(user_id: params[:id])
-  end
 end
