@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :conform, :myshow]
   before_action :set_user, only: [:show, :conform, :myshow]
+  before_action :set_products, only: [:show, :conform, :myshow]
   def index
     @products = Product.order("created_at DESC").page(params[:page]).per(16)
   end
@@ -19,11 +20,14 @@ class ProductsController < ApplicationController
 
   def set_product
      @product = Product.find(params[:id])
-     @products = Product.where(user_id: params[:user_id])
   end
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_products
+     @products = Product.where(user_id: params[:user_id])
   end
 
   def destroy
