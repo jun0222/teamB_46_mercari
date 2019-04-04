@@ -1,6 +1,6 @@
 / 一番上のスクロール画像
 %section.top
-  = image_tag 'scroll.jpg', :class => "top__image"
+  = image_tag 'scroll.jpg', class: "top__image"
 / メイン全体のラップ
 %main.main
   %h1.main__pick-up ピックアップカテゴリー
@@ -16,7 +16,7 @@
         -@products.each do |product|
           .products__product
             =link_to user_product_path(product.user, product), target: "_blank" do
-              = image_tag product.image, :class => "product-image"
+              = image_tag product.image, class: "product-image"
               - if product.sold == 1
                 = image_tag("sold", class: "main-sold")
               - else
@@ -39,8 +39,8 @@
       = paginate(@products)
 
       %section.bottom
-        = image_tag 'bottom-image.jpg', :class => "bottom-image"
+        = image_tag 'bottom-image.jpg', class: "bottom-image"
       %a.sel-button
-        =link_to "出品", new_product_path, :class => "sel-button-text"
-        =link_to "" ,new_product_path, :class => "fa fa-camera"
+        =link_to "出品", new_product_path, class: "sel-button-text"
+        =link_to "" ,new_product_path, class: "fa fa-camera"
 
