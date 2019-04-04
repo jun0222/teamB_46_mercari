@@ -12,7 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20190402083858) do
 
-  create_table "Products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
     t.text     "content",    limit: 65535, null: false
     t.text     "brand",      limit: 65535
@@ -24,16 +31,10 @@ ActiveRecord::Schema.define(version: 20190402083858) do
     t.text     "image",      limit: 65535
     t.string   "shipping",                 null: false
     t.integer  "user_id"
-    t.text     "detail",     limit: 65535, null: false
-    t.integer  "category",                 null: false
+    t.integer  "category"
+    t.string   "bearer",                   null: false
+    t.string   "days",                     null: false
     t.integer  "sold"
-  end
-
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "prefecture_id"
-    t.string   "city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

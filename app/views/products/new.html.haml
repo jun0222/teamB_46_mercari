@@ -2,7 +2,7 @@
 = form_for @product do |f|
   .wrapper__top
     %a{:herf => "https://www.mercari.com/jp/"}
-      %img{:alt => "mercari", :height => "49", :src => "image/logo.mercari.svg", :width => "185"}/
+      =image_tag "https://i.gyazo.com/55694776f48f7cf4190906c84f120fce.png", width: 207
   .wrapper__main
     .wrapper__main__head
       %h2 商品の情報を入力
@@ -12,8 +12,8 @@
         %span.bgred 必須
       %p 最大10枚までアップロードできます
       .wrapper__main__image__drop-box
-        %label#input-label{:for => "01"}
-          %input{:name => "image", :type => "file", :value => "ファイルを選択", :id => "image__drop-box", :multiple => "multiple"}/
+        %label#input-label
+          =f.file_field :image, type: "file"
     .wrapper__main__item
       .wrapper__main__item__name
         %h3
@@ -24,7 +24,7 @@
         %h3
           商品の説明
           %span.bgred 必須
-        = f.text_field :detail, placeholder: ' 商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', :size => "60x15"
+        = f.text_field :content, placeholder: ' 商品の説明(必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', :size => "60x15"
     .wrapper__main__list-item
       .wrapper__main__list__name
         %p 商品の商品
@@ -40,14 +40,7 @@
           %p
             商品の状態
             %span.bgred 必須
-          %select
-            %option ---
-            %option 新品、未使用
-            %option 未使用に近い
-            %option 目立った傷や汚れなし
-            %option やや傷や汚れあり
-            %option 傷や汚れあり
-            %option 全体的に状態が悪い
+          =f.select :state,["---","新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]
     .wrapper__main__list-delivery
       .wrapper__main__list__name
         %p
@@ -58,10 +51,7 @@
           %p
             配送料の負担
             %span.bgred 必須
-          %select
-            %option ---
-            %option 送料込み(出品者負担)
-            %option 着払い(購入者負担)
+          =f.select :bearer,["---","送料込み(出品者負担)","着払い(購入者負担)"]
         .wrapper__main__list_select_center
           %p
             発送元の地域
@@ -71,11 +61,7 @@
           %p
             発送までの日数
             %span.bgred 必須
-          %select
-            %option ---
-            %option 1~2日で発送
-            %option 2~4日で発送
-            %option 3~4日で発送
+          =f.select :days ,["---","1~2日で発送","2~4日で発送","3~4日で発送"]
     .wrapper__main__list-price
       .wrapper__main__list__name
         %h5
@@ -107,11 +93,12 @@
       %a また、出品を持ちまして
       %a.blue 加盟店規約
       %a に同意したことになります。
-      %button.wrapper__main__bottom__red 出品する
+      %button.wrapper__main__bottom__red
+        =f.submit "出品する"
       %button.wrapper__main__bottom__grey もどる
   .wrapper__bottom
     %a{:herf => "#"} プライバシーポリシー
     %a{:herf => "#"} メルカリ利用規約
     %a{:herf => "#"} 特定商取引に関する表記
-    %img{:alt => "mercari", :height => "65", :src => "image/logo-mercari.gray.svg", :width => "185"}/
+    =image_tag "https://i.gyazo.com/13c20169c5519e47f5751462f12c04e6.png", width: 80
     %small @ 2019 Mercari
