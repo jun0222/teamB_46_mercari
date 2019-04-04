@@ -86,6 +86,6 @@ class ProductsController < ApplicationController
       :category,
       :bearer,
       :days,
-      :image).merge(user_id: current_user.id)
+      :image).merge(user_id: current_user.id).merge(sold: 0)
   end
 end
