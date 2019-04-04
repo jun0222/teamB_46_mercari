@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :conform, :myshow, :show]
+  before_action :set_product, only: [:show, :conform, :myshow]
   def index
     @products = Product.order("created_at DESC").page(params[:page]).per(16)
   end
 
   def new
-    @Product = Product.new
     if params[:category] == nil
       @product = Product.new
     else
@@ -25,7 +24,6 @@ class ProductsController < ApplicationController
 
   def destroy
       product = Product.find(params[:id])
-      binding.pry
     if product.user_id == current_user.id
        product.destroy
        redirect_to myproducts_user_path
