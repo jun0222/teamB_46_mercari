@@ -10,29 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190330090515) do
+ActiveRecord::Schema.define(version: 20190402083858) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "prefecture_id"
-    t.string   "city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "prefecture_id"
-    t.string   "city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "Products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "name",       limit: 65535, null: false
     t.text     "content",    limit: 65535, null: false
     t.text     "brand",      limit: 65535
     t.string   "size"
     t.string   "state",                    null: false
-    t.boolean  "sold",                     null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "price"
@@ -41,12 +26,19 @@ ActiveRecord::Schema.define(version: 20190330090515) do
     t.integer  "user_id"
     t.text     "detail",     limit: 65535, null: false
     t.integer  "category",                 null: false
+    t.integer  "sold"
+  end
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "category"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_trees_on_ancestry", using: :btree
   end
