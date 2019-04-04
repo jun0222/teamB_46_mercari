@@ -24,8 +24,8 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    if @sold_product.sold == 0
-      @sold_product = Product.find(params.require(:product_id))
+    @sold_product = Product.find(params.require(:product_id))
+    if @sold_product.sold == Product.statuses[:available]
       @sold_product.sold = Product.statuses[:soldout]
       @sold_product.save
       Payjp.api_key = PAYJP_SECRET_KEY
