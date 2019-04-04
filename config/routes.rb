@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
-  resources :products, only: [:index, :new ,:create]
+  resources :products, only: [:index, :new ,:create ,:destroy]
 
   resources :users do
     resources :products, only: [:show] do
@@ -15,6 +15,5 @@ Rails.application.routes.draw do
     get :registration, on: :member
     get :myproducts, on: :member
   end
-  delete 'products/:id' => 'products#destroy', as: 'pruduct_delete'
 
 end
