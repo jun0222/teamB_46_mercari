@@ -19,27 +19,34 @@ ActiveRecord::Schema.define(version: 20190402083858) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "prefecture_id"
+    t.string   "city"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.text     "content",    limit: 65535, null: false
+    t.text     "name",       limit: 65535
+    t.text     "content",    limit: 65535
     t.text     "brand",      limit: 65535
     t.string   "size"
-    t.string   "state",                    null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "state",                    default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "price"
     t.text     "image",      limit: 65535
-    t.string   "shipping",                 null: false
-    t.integer  "user_id"
+    t.string   "shipping",                 default: ""
+    t.text     "detail",     limit: 65535
     t.integer  "category"
-    t.string   "bearer",                   null: false
-    t.string   "days",                     null: false
+    t.integer  "user_id"
     t.integer  "sold"
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "category"
     t.string   "ancestry"
     t.index ["ancestry"], name: "index_trees_on_ancestry", using: :btree
   end
