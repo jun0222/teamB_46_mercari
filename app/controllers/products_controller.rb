@@ -27,9 +27,13 @@ class ProductsController < ApplicationController
     @sold_product = Product.find(params.require(:product_id))
     @sold_product.sold = Product.statuses[:soldout]
     @sold_product.save
-    Payjp.api_key = PAYJP_SECRET_KEY
-    Payjp::Charge.create(currency: 'jpy', amount: @sold_product.price, card: params['payjp-token'])
-    redirect_to root_path, notice: "支払いが完了しました"
+    if @sold_product.sold == 1
+      Payjp.api_key = PAYJP_SECRET_KEY
+      Payjp::Charge.create(currency: 'jpy', amount: @sold_product.price, card: params['payjp-token'])
+      redirect_to root_path, notice: "支払いが完了しました"
+    else
+      redirect_to conform_user_product_path, notice: "エラーが出ました"
+    end
   end
 
   def show
