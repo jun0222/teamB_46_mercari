@@ -34,8 +34,6 @@
             カテゴリー
             %span.bgred 必須
             = f.select :category, options_from_collection_for_select(Tree.where(ancestry: nil), :id, :category),remote: true
-            = f.select :category, options_from_collection_for_select(Tree.all, :id, :category)
-            = f.select :category, options_from_collection_for_select(Tree.all, :id, :category)
         .wrapper__main__list_select_bottom
           %p
             商品の状態
