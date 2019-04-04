@@ -63,8 +63,14 @@
       %span.price-and-button__yen>¥
       =@product.price
       (税込)送料込み
-    %button.price-and-button__submit{:type => "submit"}/
-    =link_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id)
+    %ruby.sold-product-bottom
+      - if @product.sold == Product.statuses[:available]
+        = button_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id),class: "price-and-button__submit",:method => :get
+      - else
+        %button.price-and-button__submit__sold{:type => "submit"}/
+        %p SOLD OUT
+        = image_tag("sold", class: "sold")
+
   / ユーザーが入力する商品説明
   %section.comment
     =@product.content
@@ -107,6 +113,9 @@
         .products__product
           =link_to user_product_path(product.user, product), target: "_blank" do
             = image_tag url_to_image(product.image), :class => "product-image"
+            - if product.sold == 1
+              = image_tag("sold", class: "main-sold")
+            - else
             /商品の画像
             .products__product-bottom
               %p.products__product-text

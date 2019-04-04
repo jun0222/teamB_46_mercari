@@ -93,6 +93,28 @@ a{
       color:white;
     }
   }
+  .sold {
+    position: absolute;
+    top: 314px;
+    left: 398px;
+    width: 150px;
+    height: auto;
+  }
+  .price-and-button__submit__sold{
+    margin:15px 42px;
+    padding: 10px 220px;
+    background-color: gray;
+    color: #fff;
+    font-size: 25px;
+    line-height: 50px;
+    width: calc(100% - 36px);
+    &:active{
+      opacity:0.8;
+    }
+    a{
+      color:white;
+    }
+  }
   .comment{
     margin:30px;
   }
