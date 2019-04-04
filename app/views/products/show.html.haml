@@ -64,7 +64,7 @@
       =@product.price
       (税込)送料込み
     %ruby.sold-product-bottom
-      - if @product.sold == 0
+      - if @product.sold == Product.statuses[:available]
         %button.price-and-button__submit{:type => "submit"}/
         =link_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id)
       - else
