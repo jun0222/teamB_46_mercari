@@ -10,6 +10,7 @@
     text-align: center;
   }
   .products__product{
+    position: relative;
     width: 213px;
     background: white;
     float:left;
@@ -32,6 +33,12 @@
   .product-image{
     width: 100%;
     margin:0 auto;
+  }
+   .main-sold {
+    position: absolute;
+    top: 0px;
+    width: 150px;
+    height: auto;
   }
   .products__price{
     float: left;

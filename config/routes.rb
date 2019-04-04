@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :products, only: [:show] do
-      get :conform, on: :member
+      collection do
+        post 'purchase'
+      end
+        get :conform, on: :member
       get :myshow, on: :member
     end
     get :logout, on: :member
