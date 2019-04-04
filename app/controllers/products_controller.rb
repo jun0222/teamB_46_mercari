@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
   def purchase
     @sold_product = Product.find(params.require(:product_id))
-    @sold_product.sold = 1
+    @sold_product.sold = Product.statuses[:soldout]
     @sold_product.save
     Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(currency: 'jpy', amount: @sold_product.price, card: params['payjp-token'])
