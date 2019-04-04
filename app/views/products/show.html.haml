@@ -65,8 +65,7 @@
       (税込)送料込み
     %ruby.sold-product-bottom
       - if @product.sold == Product.statuses[:available]
-        = link_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id),class: "price-and-button__submit"
-        / = button_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id),class: "price-and-button__submit"
+        = button_to '購入画面に進む', conform_user_product_path(@product.user_id,@product.id),class: "price-and-button__submit",:method => :get
       - else
         %button.price-and-button__submit__sold{:type => "submit"}/
         %p SOLD OUT
