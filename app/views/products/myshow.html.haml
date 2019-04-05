@@ -70,7 +70,7 @@
       %br/
   / 安全面への考慮
 .controll-table
-  %a.red 商品の編集
+  =link_to '商品の編集',  edit_product_path, method: :get, class: "red"
   %p or
   %a 商品を一旦停止する
   =link_to 'この商品を削除する', product_path, method: :delete
