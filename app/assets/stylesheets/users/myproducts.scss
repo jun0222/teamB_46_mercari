@@ -1,7 +1,8 @@
 .wrapper-myproducts{
   width:1020px;
-  height:1500px;
+  height:100%;
   margin: 40px auto 0;
+  margin-bottom:50px;
   &__side{
       width:280px;
       float:left;
@@ -135,5 +136,10 @@
         }
       }
     }
+  }
+  .clearfix:after{
+    clear:both;
+    content:'';
+    display: block;
   }
 }

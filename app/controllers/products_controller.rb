@@ -16,6 +16,15 @@ class ProductsController < ApplicationController
     end
   end
 
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      render "products/new"
+    end
+  end
+
 
 
   def set_product
@@ -63,5 +72,20 @@ class ProductsController < ApplicationController
 
   def conform
     @product=Product.find(params.require(:id))
+  end
+
+  def product_params
+    params.require(:product).permit(
+      :name,
+      :content,
+      :brand,
+      :size,
+      :state,
+      :price,
+      :shipping,
+      :category,
+      :bearer,
+      :days,
+      :image).merge(user_id: current_user.id).merge(sold: 0)
   end
 end
