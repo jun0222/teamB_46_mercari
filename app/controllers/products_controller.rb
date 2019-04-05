@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :conform, :myshow]
   before_action :set_user, only: [:show, :conform, :myshow]
-  before_action :set_products, only: [:show, :conform, :myshow]
+  before_action :set_products, only: [:show, :conform, :myshow, :edit]
   def index
     @products = Product.order("created_at DESC").page(params[:page]).per(16)
   end
@@ -45,10 +45,6 @@ class ProductsController < ApplicationController
        product.destroy
        redirect_to myproducts_user_path
      end
-  end
-
-  def edit
-    @product = Product.find(params[:id])
   end
 
   def update
