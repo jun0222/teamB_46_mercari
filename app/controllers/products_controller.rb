@@ -26,24 +26,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def set_change_product
-    product = Product.find(params[:id])
-  end
-
-
-  def set_product
-     @product = Product.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def set_products
-     @products = Product.where(user_id: params[:user_id])
-  end
-
-
 # payjp連携用メソッド、ーー 実行後はproduct_buy実行
   def purchase
     @sold_product = Product.find(params.require(:product_id))
@@ -67,10 +49,22 @@ class ProductsController < ApplicationController
     @product=Product.find(params.require(:id))
   end
 
+  def update
+    if product.user_id == current_user.id
+      product.update(product_params)
+    end
+    redirect_to products_path
+  end
+
+   def destroy
+    if product.user_id == current_user.id
+       product.destroy
+       redirect_to myproducts_user_path
+     end
+  end
+
+
 private
-
-
-
   def product_params
     params.require(:product).permit(
       :name,
@@ -87,18 +81,21 @@ private
 
   end
 
-  def update
-    if product.user_id == current_user.id
-      product.update(product_params)
-    end
-    redirect_to products_path
+  def set_change_product
+    product = Product.find(params[:id])
   end
 
-   def destroy
-    if product.user_id == current_user.id
-       product.destroy
-       redirect_to myproducts_user_path
-     end
+
+  def set_product
+     @product = Product.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_products
+     @products = Product.where(user_id: params[:user_id])
   end
 
 
