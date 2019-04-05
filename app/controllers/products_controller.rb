@@ -93,7 +93,5 @@ private
   def set_products
      @products = Product.where(user_id: params[:user_id])
   end
-
-
 end
 
