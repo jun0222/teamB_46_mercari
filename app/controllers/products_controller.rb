@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :conform, :myshow, :edit, :conform]
   before_action :set_user, only: [:show, :conform, :myshow]
   before_action :set_products, only: [:show, :conform, :myshow]
-  before_action :set_change_product, only: [:update, :destroy]
   def index
     @products = Product.order("created_at DESC").page(params[:page]).per(16)
   end
@@ -46,6 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    product = Product.find(params[:id])
     if product.user_id == current_user.id
       product.update(product_params)
     end
@@ -53,6 +53,7 @@ class ProductsController < ApplicationController
   end
 
    def destroy
+    product = Product.find(params[:id])
     if product.user_id == current_user.id
        product.destroy
        redirect_to myproducts_user_path
@@ -76,11 +77,6 @@ private
       :image).merge(user_id: current_user.id).merge(sold: 0)
 
   end
-
-  def set_change_product
-    product = Product.find(params[:id])
-  end
-
 
   def set_product
      @product = Product.find(params[:id])
