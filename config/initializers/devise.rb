@@ -299,10 +299,10 @@ Devise.setup do |config|
 
   # Devise.setup do |config|
   #facebook認証
-    config.omniauth :facebook, '2348296792071426', '0276928fb089be37f62b9621344c62b8'
+    config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
 
   #google認証
-    config.omniauth :google_oauth2,'614468468063-l4k4dd8l563vsqdpfldiaiiom360n5sp.apps.googleusercontent.com','wPyxfS_ewxGKxGlx32cvJxWW'
+    config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_APP_SECRET']
   # end
 
 end
