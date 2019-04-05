@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :conform, :myshow]
+  before_action :set_product, only: [:show, :conform, :myshow, :edit, :conform]
   before_action :set_user, only: [:show, :conform, :myshow]
   before_action :set_products, only: [:show, :conform, :myshow]
   def index
@@ -25,29 +25,6 @@ class ProductsController < ApplicationController
     end
   end
 
-
-
-  def set_product
-     @product = Product.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def set_products
-     @products = Product.where(user_id: params[:user_id])
-  end
-
-  def destroy
-      product = Product.find(params[:id])
-    if product.user_id == current_user.id
-       product.destroy
-       redirect_to myproducts_user_path
-     end
-  end
-
-
 # payjp連携用メソッド、ーー 実行後はproduct_buy実行
   def purchase
     @sold_product = Product.find(params.require(:product_id))
@@ -67,13 +44,24 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
+  def update
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+      product.update(product_params)
+    end
+    redirect_to products_path
   end
 
-  def conform
-    @product=Product.find(params.require(:id))
+   def destroy
+    product = Product.find(params[:id])
+    if product.user_id == current_user.id
+       product.destroy
+       redirect_to myproducts_user_path
+     end
   end
 
+
+private
   def product_params
     params.require(:product).permit(
       :name,
@@ -87,5 +75,19 @@ class ProductsController < ApplicationController
       :bearer,
       :days,
       :image).merge(user_id: current_user.id).merge(sold: 0)
+
+  end
+
+  def set_product
+     @product = Product.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_products
+     @products = Product.where(user_id: params[:user_id])
   end
 end
+
