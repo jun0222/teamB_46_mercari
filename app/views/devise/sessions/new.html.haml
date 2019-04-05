@@ -5,19 +5,15 @@
       %h1
         %a{:href => "https://www.mercari.com/jp/"}
           = image_tag "logo.svg"
-          / :alt => "mercari", :height => "49px", :src => "logo.svg", :width => "185px"
     %main.single-main
       .login-panel
         .login-no-account
-          %p アカウントをお持ちでない方はこちら
-          = render "devise/shared/links"
+          .login-no-account-mercari
+            %p アカウントをお持ちでない方はこちら
+          .login-no-account-google_facebook
+            = render "devise/shared/links"
 
         .login-form-inner
-          %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
-            %i.icon-facebook
-            Facebookでログイン
-          %button#google-login.btn-default.btn-sns.btn-sns-google
-            Googleでログイン
           .login-form-inner-record
             = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .form-group
