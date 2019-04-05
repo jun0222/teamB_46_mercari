@@ -22,7 +22,7 @@
 
 
 #PAY.jp secret KEY
-config/initializers/setting.rb
+# config/initializers/setting.rb
 
-config/secrets.yml
+# config/secrets.yml
 
