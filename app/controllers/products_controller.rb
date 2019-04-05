@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :conform, :myshow, :edit]
+  before_action :set_product, only: [:show, :conform, :myshow, :edit, :conform]
   before_action :set_user, only: [:show, :conform, :myshow]
   before_action :set_products, only: [:show, :conform, :myshow]
   before_action :set_change_product, only: [:update, :destroy]
@@ -43,10 +43,6 @@ class ProductsController < ApplicationController
     else
       redirect_to conform_user_product_path, notice: "エラーが出ました"
     end
-  end
-
-  def conform
-    @product=Product.find(params.require(:id))
   end
 
   def update
