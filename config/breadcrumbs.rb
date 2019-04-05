@@ -41,3 +41,8 @@ crumb :product do |product|
   link "#{product.name}", product_path(product)
   parent :root
 end
+
+crumb :conform_user_product do
+  link "購入確認", conform_user_product_path
+  parent :root
+end
