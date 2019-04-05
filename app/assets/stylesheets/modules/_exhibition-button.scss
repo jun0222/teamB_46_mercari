@@ -1,4 +1,4 @@
-.sel-button{
+a.sel-button{
     text-align: center;
     width: 160px;
     height: 160px;
@@ -11,7 +11,21 @@
     bottom: 30px;
     line-height: 60px;
   }
+  a.sel-button-text{
+    position:fixed;
+    right:85px;
+    bottom:135px;
+    color:white;
+    font-size:25px;
+
+  }
+ .fa-camera{
+    position:fixed;
+    right:77px;
+    bottom:70px;
+    color:white;
+}
   .fa-camera:before{
     content: none;
-    font-size: 54px;
+    font-size: 64px;
   }

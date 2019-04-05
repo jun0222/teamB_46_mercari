@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :conform]
+  before_action :set_product, only: [:show, :conform, :myshow]
+  before_action :set_user, only: [:show, :conform, :myshow]
+  before_action :set_products, only: [:show, :conform, :myshow]
   def index
-    @products = Product.all
+    @products = Product.order("created_at DESC").page(params[:page]).per(16)
   end
 
   def new
@@ -15,13 +17,36 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      render "products/new"
+    end
   end
+
+
 
   def set_product
      @product = Product.find(params[:id])
-     @user = User.find(params[:user_id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_products
      @products = Product.where(user_id: params[:user_id])
   end
+
+  def destroy
+      product = Product.find(params[:id])
+    if product.user_id == current_user.id
+       product.destroy
+       redirect_to myproducts_user_path
+     end
+  end
+
 
 # payjp連携用メソッド、ーー 実行後はproduct_buy実行
   def purchase
@@ -47,5 +72,20 @@ class ProductsController < ApplicationController
 
   def conform
     @product=Product.find(params.require(:id))
+  end
+
+  def product_params
+    params.require(:product).permit(
+      :name,
+      :content,
+      :brand,
+      :size,
+      :state,
+      :price,
+      :shipping,
+      :category,
+      :bearer,
+      :days,
+      :image).merge(user_id: current_user.id).merge(sold: 0)
   end
 end
