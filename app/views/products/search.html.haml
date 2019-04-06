@@ -1,0 +1,46 @@
+= render :partial => "header"
+/ 一番上のスクロール画像
+%section.top
+  = image_tag 'scroll.jpg', class: "top__image"
+/ メイン全体のラップ
+%main.main
+  %h1.main__pick-up ピックアップカテゴリー
+  / 商品一覧全体のラップ
+  %section.products
+    / 商品,タイトルの行のラップ
+    .products__title-product-col
+      %h2.products__title
+        %a{:href => ""} レディース 新着アイテム
+      / 商品のみでの行ラップ
+      .products__product-col
+        / 個々の商品ラップ
+        -@products.each do |product|
+          .products__product
+            =link_to user_product_path(product.user, product), target: "_blank" do
+              = image_tag product.image, class: "product-image"
+              - if product.sold == 1
+                = image_tag("sold", class: "main-sold")
+              - else
+              /商品の画像
+              .products__product-bottom
+                %p.products__product-text
+                  = product.name
+                  /商品の名前
+                .products__product-info-wrap
+                  %p.products__price
+                    ¥
+                    = product.price
+                    %br/
+                    %span.tax (税込)
+                    /商品の値段
+                  %p.products__goods
+                    %i.fa.fa-heart-o
+                      %span.products__good-point
+                        0
+
+      %section.bottom
+        = image_tag 'bottom-image.jpg', class: "bottom-image"
+      %a.sel-button
+        =link_to "出品", new_product_path, class: "sel-button-text"
+        =link_to "" ,new_product_path, class: "fa fa-camera"
+= render :partial => "footer"
