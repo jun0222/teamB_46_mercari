@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :conform, :myshow, :edit, :conform]
+  before_action :set_product, except: :show
   before_action :set_user, only: [:show, :conform, :myshow]
   before_action :set_products, only: [:show, :conform, :myshow]
   def index
@@ -17,7 +17,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
+    @form = ProductsFindForm.new(params.require(:product_search_form))
+    @form = ProductsFindForm.new
+    # @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
   end
 
   def create
