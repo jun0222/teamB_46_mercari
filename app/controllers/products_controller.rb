@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search
+    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
+  end
+
   def create
     @product = Product.new(product_params)
     if @product.save
