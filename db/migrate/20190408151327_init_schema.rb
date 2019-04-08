@@ -27,6 +27,7 @@ class InitSchema < ActiveRecord::Migration[5.0]
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.string   "ancestry"
+      t.string   "category"
       t.index ["ancestry"], name: "index_trees_on_ancestry", using: :btree
     end
     create_table "users", force: :cascade do |t|
