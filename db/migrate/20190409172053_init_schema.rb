@@ -22,6 +22,8 @@ class InitSchema < ActiveRecord::Migration[5.0]
       t.text     "detail",             limit: 65535, null: false
       t.integer  "category",                         null: false
       t.datetime "current_sign_in_at"
+      t.string   "bearer"
+      t.string   "days"
     end
     create_table "trees", force: :cascade do |t|
       t.datetime "created_at", null: false
