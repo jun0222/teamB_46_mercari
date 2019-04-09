@@ -3,7 +3,8 @@
   }
   main.main{
     width:100%;
-    margin:0;
+    margin:-30px 0 0 0;
+    padding-top:30px;
     background-color:#f5f5f5;
   }
   .products__title, .main__pick-up{
@@ -61,7 +62,6 @@
   a{
     text-decoration: none;
   }
-<<<<<<< HEAD
 .products__title-product-col section{
   margin-bottom:-4px;
 }
@@ -75,6 +75,23 @@ section.bottom{
   font-weight: bold;
   font-size:20px;
 }
-=======
+.slider{
+  background-color: #f5f5f5;
+  margin:0;
+  .slick-prev.slick-next{
+    width:100px;
+  }
+}
 
->>>>>>> parent of d7d36c1... Revert "Revert "Revert "Merge pull request #28 from AkihiroShiraishi/test__ws"""
+.slick-prev
+{
+    position:absolute;
+    left:50px;
+    z-index:30;
+}
+.slick-next
+{
+    position: absolute;
+    right: 50px;
+    z-index:30;
+}

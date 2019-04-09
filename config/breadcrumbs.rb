@@ -32,10 +32,10 @@ crumb :logout_user do
   link "ログアウト", logout_user_path
   parent :users
 end
-# crumb :user do |user|
-#   link "@#{user.nickname}", user_path(user)
-#   parent :users
-# end
+crumb :user do |user|
+  link "@#{user.nickname}", user_path(user)
+  parent :users
+end
 
 crumb :product do |product|
   link "#{product.name}", product_path(product)
