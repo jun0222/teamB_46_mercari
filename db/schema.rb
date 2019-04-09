@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190404100259) do
+ActiveRecord::Schema.define(version: 20190409172051) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -20,20 +20,21 @@ ActiveRecord::Schema.define(version: 20190404100259) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "name",       limit: 65535, null: false
-    t.text     "content",    limit: 65535, null: false
-    t.text     "brand",      limit: 65535
+    t.text     "name",               limit: 65535, null: false
+    t.text     "content",            limit: 65535, null: false
+    t.text     "brand",              limit: 65535
     t.string   "size"
-    t.string   "state",                    null: false
-    t.boolean  "sold",                     null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "state",                            null: false
+    t.boolean  "sold",                             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "price"
-    t.text     "image",      limit: 65535
-    t.string   "shipping",                 null: false
+    t.text     "image",              limit: 65535
+    t.string   "shipping",                         null: false
     t.integer  "user_id"
-    t.text     "detail",     limit: 65535, null: false
-    t.integer  "category",                 null: false
+    t.text     "detail",             limit: 65535, null: false
+    t.integer  "category",                         null: false
+    t.datetime "current_sign_in_at"
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,6 +68,11 @@ ActiveRecord::Schema.define(version: 20190404100259) do
     t.string   "provider"
     t.string   "token"
     t.string   "meta"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "sign_in_count",                        default: 0,  null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
