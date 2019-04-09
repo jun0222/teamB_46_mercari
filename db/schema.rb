@@ -24,39 +24,17 @@ ActiveRecord::Schema.define(version: 20190409172051) do
     t.text     "content",            limit: 65535, null: false
     t.text     "brand",              limit: 65535
     t.string   "size"
-<<<<<<< HEAD
-    t.string   "state",                    null: false
-<<<<<<< HEAD
-=======
-    t.boolean  "sold",                     null: false
->>>>>>> jun0222/master
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-=======
     t.string   "state",                            null: false
     t.boolean  "sold",                             null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
->>>>>>> jun0222/master
     t.integer  "price"
     t.text     "image",              limit: 65535
     t.string   "shipping",                         null: false
     t.integer  "user_id"
-<<<<<<< HEAD
-<<<<<<< HEAD
-    t.integer  "category"
-    t.string   "bearer",                   null: false
-    t.string   "days",                     null: false
-    t.integer  "sold"
-=======
-    t.text     "detail",     limit: 65535, null: false
-    t.integer  "category",                 null: false
->>>>>>> jun0222/master
-=======
     t.text     "detail",             limit: 65535, null: false
     t.integer  "category",                         null: false
     t.datetime "current_sign_in_at"
->>>>>>> jun0222/master
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
