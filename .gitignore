@@ -28,3 +28,5 @@
 
 
 *.yml
+
+config/initializers/setting.rb
