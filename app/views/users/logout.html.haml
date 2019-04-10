@@ -1,3 +1,5 @@
+
+- breadcrumb :logout_user, @user
 .wrapper-logout
   .wrapper-logout__side
     %nav.wrapper-logout__side__nav
@@ -101,3 +103,4 @@
   .wrapper-logout__main
     %button
       = link_to "ログアウト", destroy_user_session_path, method: :delete
+

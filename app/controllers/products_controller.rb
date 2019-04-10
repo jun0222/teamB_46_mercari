@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%")
+    @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(48)
   end
 
   def create
