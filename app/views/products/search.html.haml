@@ -1,46 +1,159 @@
-= render :partial => "header"
+
 / 一番上のスクロール画像
-%section.top
-  = image_tag 'scroll.jpg', class: "top__image"
-/ メイン全体のラップ
-%main.main
-  %h1.main__pick-up ピックアップカテゴリー
+
+%main.main-search
   / 商品一覧全体のラップ
-  %section.products
-    / 商品,タイトルの行のラップ
-    .products__title-product-col
-      %h2.products__title
-        %a{:href => ""} レディース 新着アイテム
+  %section.products-search
+    .products-search_side
+      .products-search_side_order
+        %select
+          %option 並び替え
+          %option 価格の安い順
+          %option 価格の高い順
+          %option 出品の古い順
+          %option 出品の新しい順
+          %option いいね!の多い順
+      .products-search_side_detail
+        %h3 詳細検索
+        %h4
+          %span.fa.fa-plus
+          キーワードを追加する
+          %input{placeholder: "例）値下げ"}
+        %h4
+          %span.fa.fa-list
+          カテゴリーを選択する
+          %select
+            %option すべて
+            %option レディース
+            %option メンズ
+            %option ベビー・キッズ
+            %option インテリア・住まい・小物
+            %option 本・音楽・ゲーム
+            %option おもちゃ・ホビー・グッズ
+            %option コスメ・香水・美容
+            %option 家電・スマホ・カメラ
+            %option スポーツ・レジャー
+            %option ハンドメイド
+            %option チケット
+            %option 自動車・オートバイ
+            %option その他
+        %h4
+          %span.fa.fa-tag
+          ブランド名から探す
+          %input{placeholder: "例）シャネル"}
+        %h4
+          %span.fa.fa-expand
+          サイズを指定する
+          %select
+            %option すべて
+            %option 洋服のサイズ
+            %option メンズ靴のサイズ
+            %option レディース靴のサイズ
+            %option スカートのサイズ
+            %option キッズ服のサイズ
+            %option ベビー・キッズ靴のサイズ
+            %option ベビー服のサイズ
+            %option テレビのサイズ
+            %option カメラレンズのサイズ
+            %option オートバイのサイズ
+            %option タイヤのサイズ
+            %option スキーのサイズ
+            %option スノーボードのサイズ
+        %h4
+          %span.fa.fa-conins
+          価格
+          %select
+            %option 選択してください
+            %option 300 ~ 1000
+            %option 1000 ~ 5000
+            %option 5000 ~ 10000
+            %option 10000 ~ 30000
+            %option 30000 ~ 50000
+            %option 50000 ~
+          %input{placeholder: "¥ Min", class: "price"}
+          %i ~
+          %input{placeholder: "¥ Max", class: "price"}
+        %h4
+          %span.fa.fa-star
+          商品の状態
+        %label
+          %input{type: "checkbox"}
+          %p すべて
+        %label
+          %input{type: "checkbox"}
+          %p 新品、未使用
+        %label
+          %input{type: "checkbox"}
+          %p 未使用に近い
+        %label
+          %input{type: "checkbox"}
+          %p 目立った傷や汚れなし
+        %label
+          %input{type: "checkbox"}
+          %p やや傷や汚れあり
+        %label
+          %input{type: "checkbox"}
+          %p 傷や汚れあり
+        %label
+          %input{type: "checkbox"}
+          %p 全体的に状態が悪い
+        %p
+          %span.fa.fa-truck-moving
+          配送料の負担
+        %label
+          %input{type: "checkbox"}
+          %p すべて
+        %label
+          %input{type: "checkbox"}
+          %p 着払い（購入者負担）
+        %label
+          %input{type: "checkbox"}
+          %p 送料込み（出品者負担）
+        %p
+          %span.fa.fa-truck-moving
+          販売状況
+        %label
+          %input{type: "checkbox"}
+          %p すべて
+        %label
+          %input{type: "checkbox"}
+          %p 販売中
+        %label
+          %input{type: "checkbox"}
+          %p 売り切れ
+        .button-wrapper
+          %button.gray クリア
+          %button.red 完了
+    .products-search__title-product-col
       / 商品のみでの行ラップ
-      .products__product-col
+      .products-search__product-col
         / 個々の商品ラップ
         -@products.each do |product|
-          .products__product
+          .products-search__product
             =link_to user_product_path(product.user, product), target: "_blank" do
-              = image_tag product.image, class: "product-image"
+              = image_tag product.image, class: "product-search-image"
               - if product.sold == 1
-                = image_tag("sold", class: "main-sold")
+                = image_tag("sold", class: "mai-search-sold")
               - else
               /商品の画像
-              .products__product-bottom
-                %p.products__product-text
+              .products-search__product-bottom
+                %p.products-search__product-text
                   = product.name
                   /商品の名前
-                .products__product-info-wrap
-                  %p.products__price
+                .products-search__product-info-wrap
+                  %p.products-search__price
                     ¥
                     = product.price
                     %br/
-                    %span.tax (税込)
+                    %span.tax-search (税込)
                     /商品の値段
-                  %p.products__goods
+                  %p.products-search__goods
                     %i.fa.fa-heart-o
-                      %span.products__good-point
+                      %span.products-search__good-point
                         0
-
-      %section.bottom
-        = image_tag 'bottom-image.jpg', class: "bottom-image"
       %a.sel-button
         =link_to "出品", new_product_path, class: "sel-button-text"
         =link_to "" ,new_product_path, class: "fa fa-camera"
-= render :partial => "footer"
+  = paginate(@products)
+.clearfix
+

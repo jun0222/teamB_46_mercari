@@ -170,10 +170,12 @@ body{
 }
 .wrapper__main__bottom__red{
   background-color: red;
-  color:white;
   width:618px;
   height: 48px;
   margin-top:20px;
+  input{
+    color:white;
+  }
 }
 .wrapper__main__bottom__grey{
   background-color:#aaa;

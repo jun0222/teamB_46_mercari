@@ -73,4 +73,4 @@
   =link_to '商品の編集',  edit_product_path, class: "red"
   %p or
   %a 商品を一旦停止する
-  =link_to 'この商品を削除する', product_path, method: :delete
+  =link_to 'この商品を削除する', "/products/#{@product.id}" , method: :delete

@@ -6,7 +6,8 @@ $('.slider').slick({
     autoplay: true,
     autoplaySpeed: 2000,
     dots: true,
-    arrows:true,
+    prev: true,
+    next: true,
     dotsClass:'slick-dots'
 });
 
