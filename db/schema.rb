@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190409180826) do
+ActiveRecord::Schema.define(version: 20190410072453) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "prefecture_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20190409180826) do
     t.text     "brand",              limit: 65535
     t.string   "size"
     t.string   "state",                            null: false
-    t.boolean  "sold",                             null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "price"
@@ -36,6 +35,7 @@ ActiveRecord::Schema.define(version: 20190409180826) do
     t.datetime "current_sign_in_at"
     t.string   "bearer"
     t.string   "days"
+    t.string   "sold"
   end
 
   create_table "trees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

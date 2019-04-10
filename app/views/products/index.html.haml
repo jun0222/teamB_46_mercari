@@ -24,7 +24,7 @@
           .products__product
             =link_to user_product_path(product.user, product), target: "_blank" do
               = image_tag product.image, class: "product-image"
-              - if product.sold == 1
+              - if product.sold == Product.statuses[:soldout]
                 = image_tag("sold", class: "main-sold")
               - else
               /商品の画像
