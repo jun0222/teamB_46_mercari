@@ -4,17 +4,15 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title TeamB46Mercari
     = csrf_meta_tags
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.8.1/css/all.css", :integrity => "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf", :rel => "stylesheet"}/
-
   %body
-
-
-    = render "layouts/header"
     = breadcrumbs pretext: "", separator: " &rsaquo; "
     = yield
-
-    = render "layouts/footer"
 
 
