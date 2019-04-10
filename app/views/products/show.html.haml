@@ -18,7 +18,7 @@
     = image_tag url_to_image(@product.image), class: "pstop-image"
     - if @product.sold == Product.statuses[:available]
     - else
-      = image_tag("sold", class: "sold")
+      = image_tag("sold.png", class: "sold")
     %table.pstable
       %tr
         %td.pstd.pstdl
