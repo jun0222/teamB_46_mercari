@@ -28,4 +28,13 @@ describe 'GET #show' do
       expect(response).to render_template :show
     end
   end
+  describe 'DELETE #destroy' do
+    it "assings the requested product to @ product" do
+      user = create(:user)
+      sign_in user
+      product = create(:product)
+      delete :destroy, params: {id: product.id, user_id: product.user_id, id: user.id}
+      expect(assigns(:product)).to eq nil
+    end
+  end
 end
