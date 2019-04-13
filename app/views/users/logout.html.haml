@@ -1,5 +1,4 @@
-= render :partial => "products/header"
-= breadcrumbs pretext: "", separator: " &rsaquo; "
+
 - breadcrumb :logout_user, @user
 .wrapper-logout
   .wrapper-logout__side
@@ -104,5 +103,5 @@
   .wrapper-logout__main
     %button
       = link_to "ログアウト", destroy_user_session_path, method: :delete
-= render :partial => "products/footer"
+
 
