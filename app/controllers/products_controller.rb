@@ -2,8 +2,19 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :conform, :myshow, :edit, :conform]
   before_action :set_user, only: [:show, :conform, :myshow]
   before_action :set_products, only: [:show, :conform, :myshow]
+  before_action :change_layout, only: []
+  def change_layout
+    render :layout => "second_layout"
+  end
   def index
     @products = Product.order("created_at DESC").page(params[:page]).per(16)
+    render :layout => "second_layout"
+  end
+  def show
+    render :layout => "second_layout"
+  end
+  def myshow
+    render :layout => "second_layout"
   end
 
   def new
@@ -16,12 +27,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def conform
-    render :layout => "second_layout"
-  end
-
   def search
     @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(48)
+    render :layout => "second_layout"
   end
 
   def create
