@@ -16,6 +16,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def conform
+    render :layout => "second_layout"
+  end
+
   def search
     @products = Product.where('name LIKE(?)',"%#{params[:keyword]}%").order("created_at DESC").page(params[:page]).per(48)
   end

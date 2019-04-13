@@ -1,6 +1,5 @@
 
 / 一番上のスクロール画像
-= render :partial => "products/header"
 %main.main-search
   / 商品一覧全体のラップ
   %section.products-search
@@ -156,4 +155,3 @@
         =link_to "" ,new_product_path, class: "fa fa-camera"
   = paginate(@products)
 .clearfix
-= render :partial => "products/footer"

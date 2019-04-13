@@ -1,4 +1,4 @@
-= render :partial => "products/header"
+
 %main.main-show
   / 商品名と取引実績
   %section.top-explanation
@@ -75,4 +75,4 @@
   %p or
   %a 商品を一旦停止する
   =link_to 'この商品を削除する', "/products/#{@product.id}" , method: :delete
-= render :partial => "products/footer"
+
